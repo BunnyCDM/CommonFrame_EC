@@ -16,10 +16,11 @@ public class MainActivity extends ProxyActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
+
+//        final ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.hide();
+//        }
 
 //        setContentView(R.layout.activity_main);
 
@@ -29,8 +30,8 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public LatteDelegate setRootDelegate() {
-//        return new SignInDelegate();
-        return new EcBottomDelegate();
+        return new SignInDelegate();
+//        return new EcBottomDelegate();
     }
 
 
