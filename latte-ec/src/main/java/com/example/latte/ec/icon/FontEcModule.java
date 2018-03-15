@@ -18,4 +18,5 @@ public class FontEcModule implements IconFontDescriptor {
     public Icon[] characters() {
         return EcIcons.values();
     }
+
 }

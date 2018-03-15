@@ -25,4 +25,5 @@ public enum EcIcons implements Icon {
     public char character() {
         return character;
     }
+
 }

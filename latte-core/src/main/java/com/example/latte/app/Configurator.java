@@ -23,8 +23,8 @@ public class Configurator {
     //注：WeakHashMap是当键值对不在使用时就会被系统自动回收，伴随应用整个生命周期的所以不能使用
     //private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
     private static final HashMap<Object, Object> LATTE_CONFIGS = new HashMap<>();
-    private static final Handler HANDLER = new Handler();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final Handler HANDLER = new Handler();
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
 
     private Configurator() {
@@ -59,23 +59,22 @@ public class Configurator {
         return this;
     }
 
-    public final Configurator withLoaderDelayed(long delayed) {
-        LATTE_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
-        return this;
-    }
-
     private void initIcons() {
         if (ICONS.size() > 0) {
             final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
             for (int i = 1; i < ICONS.size(); i++) {
                 initializer.with(ICONS.get(i));
             }
-
         }
     }
 
     public final Configurator withIcon(IconFontDescriptor descriptor) {
         ICONS.add(descriptor);//如果想加入自己的图标
+        return this;
+    }
+
+    public final Configurator withLoaderDelayed(long delayed) {
+        LATTE_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
         return this;
     }
 
