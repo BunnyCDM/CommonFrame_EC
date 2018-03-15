@@ -16,13 +16,12 @@ import okhttp3.Interceptor;
  * Created by mac on 2017/9/11.
  * <p>
  * 专门管理配置项目
- *
  */
 
 public class Configurator {
 
-    //    注：WeakHashMap是当键值对不在使用时就会被系统自动回收，伴随应用整个生命周期的所以不能使用
-//    private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
+    //注：WeakHashMap是当键值对不在使用时就会被系统自动回收，伴随应用整个生命周期的所以不能使用
+    //private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
     private static final HashMap<Object, Object> LATTE_CONFIGS = new HashMap<>();
     private static final Handler HANDLER = new Handler();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
@@ -31,10 +30,6 @@ public class Configurator {
     private Configurator() {
         LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
         LATTE_CONFIGS.put(ConfigKeys.HANDLER, HANDLER);
-    }
-
-    private static class Holder {
-        private static final Configurator INSTANCE = new Configurator();
     }
 
     /**
@@ -46,7 +41,11 @@ public class Configurator {
         return Holder.INSTANCE;
     }
 
-    final HashMap<Object, Object> getLatteConfigs() {
+    private static class Holder {
+        private static final Configurator INSTANCE = new Configurator();
+    }
+
+    public final HashMap<Object, Object> getLatteConfigs() {
         return LATTE_CONFIGS;
     }
 
@@ -133,4 +132,5 @@ public class Configurator {
         }
         return (T) LATTE_CONFIGS.get(key);
     }
+
 }

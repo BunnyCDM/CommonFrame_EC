@@ -17,17 +17,22 @@ public class ExampleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         Latte.init(this)
-                .withIcon(new FontAwesomeModule())
-                .withIcon(new FontEcModule())//自定义字体
-                .withLoaderDelayed(1000)
-                .withApiHost("http://127.0.0.1/")
-                .withInterceptor(new DebugInterceptor("index",R.raw.test))
-//                .withWeChatAppId("")
-//                .withWeChatAppSecret("")
+                .withApiHost("http://127.0.0.1/")//回环（本机地址）
                 .configure();
 
-        DatabaseManager.getInstance().init(this);
+//        Latte.init(this)
+//                .withIcon(new FontAwesomeModule())
+//                .withIcon(new FontEcModule())//自定义字体
+//                .withLoaderDelayed(1000)
+//                .withApiHost("http://127.0.0.1/")
+//                .withInterceptor(new DebugInterceptor("index",R.raw.test))
+//                .withWeChatAppId("")
+//                .withWeChatAppSecret("")
+//                .configure();
+//
+//        DatabaseManager.getInstance().init(this);
 
     }
 }
