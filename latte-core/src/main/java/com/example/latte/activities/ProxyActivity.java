@@ -30,15 +30,14 @@ public abstract class ProxyActivity extends SupportActivity {
         if (savedInstanceState == null) {
             loadRootFragment(R.id.delegate_container, setRootDelegate());
         }
-
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //垃圾回收  ，以下两个方法不一定执行
+        //既然是单activity架构，垃圾回收  ，以下两个方法不一定执行
         System.gc();
         System.runFinalization();
     }
+
 }

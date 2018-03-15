@@ -21,21 +21,47 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
  * Created by mac on 2017/9/16.
- *
- *  不希望使用者new出它的实例，所以这里采用抽象类使用（本来extends 是SwipeBackFragment）
+ * <p>
+ * 不希望使用者new出它的实例，所以这里采用抽象类使用（本来extends 是SwipeBackFragment）
  */
 
-public abstract class BaseDelegate extends Fragment implements ISupportFragment{
+public abstract class BaseDelegate extends Fragment implements ISupportFragment {
 
     private final SupportFragmentDelegate DELEGATE = new SupportFragmentDelegate(this);
 
-    protected FragmentActivity _mActivity=null;
+    protected FragmentActivity _mActivity = null;
 
     private Unbinder mUnbinder = null;
 
     public abstract Object setLayout();
 
     public abstract void onBindView(@Nullable Bundle savedInstanceState, View rootView);
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = null;
+
+        if (setLayout() instanceof Integer) {
+            rootView = inflater.inflate((int) setLayout(), container, false);
+        } else if (setLayout() instanceof View) {
+            rootView = (View) setLayout();
+        }
+        if (rootView != null) {
+            mUnbinder = ButterKnife.bind(this, rootView);
+
+            onBindView(savedInstanceState, rootView);
+        }
+        return rootView;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
+        }
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -62,25 +88,7 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment{
         DELEGATE.onSaveInstanceState(outState);
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = null;
-
-        if (setLayout() instanceof Integer) {
-            rootView = inflater.inflate((int) setLayout(), container, false);
-        } else if (setLayout() instanceof View) {
-            rootView = (View) setLayout();
-        }
-        if (rootView != null) {
-            mUnbinder = ButterKnife.bind(this, rootView);
-
-            onBindView(savedInstanceState, rootView);
-        }
-        return rootView;
-    }
-
-    public final ProxyActivity getProxyActivity(){
+    public final ProxyActivity getProxyActivity() {
         return (ProxyActivity) _mActivity;
     }
 
@@ -106,14 +114,6 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment{
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         DELEGATE.setUserVisibleHint(isVisibleToUser);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mUnbinder != null) {
-            mUnbinder.unbind();
-        }
     }
 
     @Override
@@ -195,6 +195,5 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment{
     public boolean onBackPressedSupport() {
         return DELEGATE.onBackPressedSupport();
     }
-
 
 }
