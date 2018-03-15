@@ -11,7 +11,7 @@ import com.example.latte.ec.main.EcBottomDelegate;
 import com.example.latte.ec.sign.SignInDelegate;
 import com.example.latte.ec.sign.SignUpDelegate;
 
-public class MainActivity extends ProxyActivity {
+public class ExampleActivity extends ProxyActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,7 +30,8 @@ public class MainActivity extends ProxyActivity {
 
     @Override
     public LatteDelegate setRootDelegate() {
-        return new SignInDelegate();
+        return new ExampleDelegate();
+//        return new SignInDelegate();
 //        return new EcBottomDelegate();
     }
 
