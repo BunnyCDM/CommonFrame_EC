@@ -12,7 +12,6 @@ import com.example.latte.ui.loader.LatteLoader;
 import com.example.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
-import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
@@ -23,19 +22,19 @@ import retrofit2.Callback;
 
 /**
  * Created by mac on 2017/9/16.
- *
+ * <p>
  * 请求具体实现类
  */
 
 public class RestClient {
 
     private final String URL;
-//    private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
-    private final WeakHashMap<String, Object> PARAMS ;
+    //private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
+    private final WeakHashMap<String, Object> PARAMS;
     private final IRequest REQUEST;
-    private final String DOWNLOAD_DIR;
-    private final String EXTENSION;
-    private final String NAME;
+    private final String DOWNLOAD_DIR;//下载后文件储存位置
+    private final String EXTENSION;//后缀名
+    private final String NAME;//完整文件名
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -59,7 +58,7 @@ public class RestClient {
                       Context context,
                       LoaderStyle loaderStyle) {
         this.URL = url;
-        this.PARAMS=params;
+        this.PARAMS = params;
         this.DOWNLOAD_DIR = downloadDir;
         this.EXTENSION = extension;
         this.NAME = name;

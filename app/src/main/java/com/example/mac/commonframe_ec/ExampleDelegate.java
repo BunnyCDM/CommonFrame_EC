@@ -29,8 +29,8 @@ public class ExampleDelegate extends LatteDelegate {
 
     private void testRestClient() {
         RestClient.builder()
-                .url("http://news.baidu.com")
-//                .params("","")
+                .url("http://127.0.0.1/index")//http://news.baidu.com
+                .params("", "")
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override
@@ -52,6 +52,7 @@ public class ExampleDelegate extends LatteDelegate {
 
                     }
                 })
-                .build();
+                .build()
+                .get();
     }
 }

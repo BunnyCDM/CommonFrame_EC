@@ -10,8 +10,6 @@ import com.example.latte.net.callback.ISuccess;
 
 import java.util.WeakHashMap;
 
-import okhttp3.Call;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 import retrofit2.Callback;
 
@@ -54,7 +52,7 @@ public final class DownloadHandler {
             REQUEST.onRequestStart();
         }
 
-        RestCreator.getRestService().download(URL,PARAMS)
+        RestCreator.getRestService().download(URL, PARAMS)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(retrofit2.Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {

@@ -44,5 +44,6 @@ public abstract class BaseInterceptor implements Interceptor {
     protected String getBodyParameters(Chain chain, String key) {
         return getBodyParameters(chain).get(key);
     }
+
 }
 

@@ -44,10 +44,11 @@ public class DebugInterceptor extends BaseInterceptor {
 
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
-        final String url = chain.request().url().toString();
+        final String url = chain.request().url().toString();//到的拦截url
         if (url.contains(DEBUG_URL)) {
             return debugResponse(chain, DEBUG_RAW_ID);
         }
         return chain.proceed(chain.request());
     }
+
 }

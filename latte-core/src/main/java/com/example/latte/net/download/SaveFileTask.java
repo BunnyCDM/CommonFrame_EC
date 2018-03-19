@@ -34,7 +34,7 @@ public final class SaveFileTask extends AsyncTask<Object, Void, File> {
         String extension = (String) params[1];
         final ResponseBody body = (ResponseBody) params[2];
         final String name = (String) params[3];
-        final InputStream is = body.byteStream();
+        final InputStream is = body.byteStream();//得到输入流
         if (downloadDir == null || downloadDir.equals("")) {
             downloadDir = "down_loads";
         }
@@ -69,4 +69,5 @@ public final class SaveFileTask extends AsyncTask<Object, Void, File> {
             Latte.getApplicationContext().startActivity(install);
         }
     }
+
 }

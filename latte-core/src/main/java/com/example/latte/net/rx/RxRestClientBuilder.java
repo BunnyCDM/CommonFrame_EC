@@ -71,4 +71,5 @@ public final class RxRestClientBuilder {
     public final RxRestClient build() {
         return new RxRestClient(mUrl, PARAMS, mBody, mFile, mContext, mLoaderStyle);
     }
+
 }

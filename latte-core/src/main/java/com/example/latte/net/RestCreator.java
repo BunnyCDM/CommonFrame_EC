@@ -20,12 +20,12 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public final class RestCreator {
 
-    private final static class ParamsHolde {
+    private final static class ParamsHolder {
         public static final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     }
 
     public static WeakHashMap<String, Object> getParams() {
-        return ParamsHolde.PARAMS;
+        return ParamsHolder.PARAMS;
     }
 
 //    public static RestService getRestService() {
@@ -99,4 +99,5 @@ public final class RestCreator {
     public static RxRestService getRxRestService() {
         return RxRestServiceHolder.REST_SERVICE;
     }
+
 }

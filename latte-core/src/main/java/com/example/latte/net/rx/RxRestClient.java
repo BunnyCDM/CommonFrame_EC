@@ -49,6 +49,7 @@ public final class RxRestClient {
 
     private Observable<String> request(HttpMethod method) {
         final RxRestService service = RestCreator.getRxRestService();
+
         Observable<String> observable = null;
 
         if (LOADER_STYLE != null) {
@@ -125,4 +126,5 @@ public final class RxRestClient {
     public final Observable<ResponseBody> download() {
         return RestCreator.getRxRestService().download(URL, PARAMS);
     }
+
 }

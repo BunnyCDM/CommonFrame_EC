@@ -51,4 +51,5 @@ public interface RxRestService {
     @Multipart
     @POST
     Observable<String> upload(@Url String url, @Part MultipartBody.Part file);
+
 }

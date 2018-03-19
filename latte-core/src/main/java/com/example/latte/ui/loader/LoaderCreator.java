@@ -19,7 +19,7 @@ public final class LoaderCreator {
         final AVLoadingIndicatorView avLoadingIndicatorView = new AVLoadingIndicatorView(context);
         if (LOADING_MAP.get(type) == null) {
             final Indicator indicator = getIndicator(type);
-            LOADING_MAP.put(type,indicator);
+            LOADING_MAP.put(type, indicator);
         }
         avLoadingIndicatorView.setIndicator(LOADING_MAP.get(type));
         return avLoadingIndicatorView;

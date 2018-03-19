@@ -87,6 +87,7 @@ public class FileUtil {
         return new File(createDir(sdcardDirName), fileName);
     }
 
+    //根据时间得到文件名
     private static File createFileByTime(String sdcardDirName, String timeFormatHeader, String extension) {
         final String fileName = getFileNameByTime(timeFormatHeader, extension);
         return createFile(sdcardDirName, fileName);
