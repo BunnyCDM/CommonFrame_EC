@@ -6,17 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 
 import com.example.latte.delegates.LatteDelegate;
 import com.example.latte.ec.R;
 import com.example.latte.ec.R2;
-import com.example.latte.net.RestClient;
-import com.example.latte.net.callback.ISuccess;
-import com.example.latte.util.log.LatteLogger;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,21 +23,17 @@ import butterknife.OnClick;
 
 public class SignUpDelegate extends LatteDelegate {
 
-
+    private static final String TAG = SignUpDelegate.class.getSimpleName();
     @BindView(R2.id.edit_sign_up_name)
-    TextInputEditText mName;
+    TextInputEditText mName = null;
     @BindView(R2.id.edit_sign_up_email)
-    TextInputEditText mEmail;
+    TextInputEditText mEmail = null;
     @BindView(R2.id.edit_sign_up_phone)
-    TextInputEditText mPhone;
+    TextInputEditText mPhone = null;
     @BindView(R2.id.edit_sign_up_password)
-    TextInputEditText mPassword;
+    TextInputEditText mPassword = null;
     @BindView(R2.id.edit_sign_up_re_password)
-    TextInputEditText mRePassword;
-    @BindView(R2.id.btn_sign_up)
-    AppCompatButton mSignUp;
-    @BindView(R2.id.tv_link_sign_in)
-    AppCompatTextView mLinkSignIn;
+    TextInputEditText mRePassword = null;
 
     private ISignListener mISignListener = null;
 
@@ -60,26 +52,27 @@ public class SignUpDelegate extends LatteDelegate {
         switch (view.getId()) {
             case R2.id.btn_sign_up:
                 if (checkForm()) {
-                    RestClient.builder()
-                            .url("")
-                            .params("name", mName.getText().toString().trim())
-                            .params("email", mEmail.getText().toString().trim())
-                            .params("phone", mPhone.getText().toString().trim())
-                            .params("password", mPassword.getText().toString().trim())
-                            .success(new ISuccess() {
-                                @Override
-                                public void onSuccess(String response) {
-                                    LatteLogger.json("USER_PROFILE", response);
-                                    SignHandler.onSignUp(response,mISignListener);
-
-                                }
-                            })
-                            .build()
-                            .post();
+                    Log.d(TAG, "onClick: 验证通过了");
+//                    RestClient.builder()
+//                            .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+//                            .params("name", mName.getText().toString().trim())
+//                            .params("email", mEmail.getText().toString().trim())
+//                            .params("phone", mPhone.getText().toString().trim())
+//                            .params("password", mPassword.getText().toString().trim())
+//                            .success(new ISuccess() {
+//                                @Override
+//                                public void onSuccess(String response) {
+//                                    LatteLogger.json("USER_PROFILE", response);
+//                                    SignHandler.onSignUp(response, mISignListener);
+//                                }
+//                            })
+//                            .build()
+//                            .post();
 
                 }
                 break;
             case R2.id.tv_link_sign_in:
+                Log.d(TAG, "onClick: 已经注册了，请登录");
                 getSupportDelegate().start(new SignInDelegate());
                 break;
             default:
@@ -111,7 +104,7 @@ public class SignUpDelegate extends LatteDelegate {
             mEmail.setError(null);
         }
 
-        if (phone.isEmpty() || phone.length() < 6) {
+        if (phone.isEmpty() || phone.length() != 11) {
             mPhone.setError("手机号码错误");
             isPass = false;
         } else {
@@ -133,7 +126,6 @@ public class SignUpDelegate extends LatteDelegate {
         }
 
         return isPass;
-
     }
 
     @Override

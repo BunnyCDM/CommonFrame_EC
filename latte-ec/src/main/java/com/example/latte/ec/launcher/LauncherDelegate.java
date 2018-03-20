@@ -31,7 +31,7 @@ import butterknife.OnClick;
 
 public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
-    private static final String TAG=LauncherDelegate.class.getSimpleName();
+    private static final String TAG = LauncherDelegate.class.getSimpleName();
     @BindView(R2.id.tv_launcher_timer)
     AppCompatTextView mTvTimer = null;
 
@@ -64,7 +64,6 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @Override
     public Object setLayout() {
-        Log.d(TAG, "setLayout: 开始啦");
         return R.layout.delegate_launcher;
     }
 

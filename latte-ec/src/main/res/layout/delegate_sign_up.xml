@@ -18,6 +18,7 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.NestedScrollView
@@ -144,5 +145,7 @@
                 tools:ignore="HardcodedText" />
 
         </android.support.v7.widget.LinearLayoutCompat>
+
     </android.support.v4.widget.NestedScrollView>
+
 </android.support.v7.widget.LinearLayoutCompat>

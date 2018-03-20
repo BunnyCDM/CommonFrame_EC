@@ -27,6 +27,8 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public abstract class BaseDelegate extends Fragment implements ISupportFragment {
 
+    private static final String TAG = BaseDelegate.class.getSimpleName();
+
     private final SupportFragmentDelegate DELEGATE = new SupportFragmentDelegate(this);
 
     protected FragmentActivity _mActivity = null;
@@ -46,7 +48,7 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment 
             rootView = inflater.inflate((int) setLayout(), container, false);
         } else if (setLayout() instanceof View) {
             rootView = (View) setLayout();
-        }else {
+        } else {
             throw new ClassCastException("type of setLayout() must be int or View!");
         }
         mUnbinder = ButterKnife.bind(this, rootView);
