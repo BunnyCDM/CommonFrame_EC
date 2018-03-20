@@ -10,6 +10,7 @@ import org.greenrobot.greendao.annotation.Id;
 
 @Entity(nameInDb = "user_profile")
 public class UserProfile {
+    
     @Id
     private long userId = 0;
     private String name = null;

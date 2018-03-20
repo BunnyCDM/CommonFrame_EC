@@ -13,6 +13,9 @@ import android.view.View;
 import com.example.latte.delegates.LatteDelegate;
 import com.example.latte.ec.R;
 import com.example.latte.ec.R2;
+import com.example.latte.net.RestClient;
+import com.example.latte.net.callback.ISuccess;
+import com.example.latte.util.log.LatteLogger;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -53,21 +56,21 @@ public class SignUpDelegate extends LatteDelegate {
             case R2.id.btn_sign_up:
                 if (checkForm()) {
                     Log.d(TAG, "onClick: 验证通过了");
-//                    RestClient.builder()
-//                            .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
-//                            .params("name", mName.getText().toString().trim())
-//                            .params("email", mEmail.getText().toString().trim())
-//                            .params("phone", mPhone.getText().toString().trim())
-//                            .params("password", mPassword.getText().toString().trim())
-//                            .success(new ISuccess() {
-//                                @Override
-//                                public void onSuccess(String response) {
-//                                    LatteLogger.json("USER_PROFILE", response);
-//                                    SignHandler.onSignUp(response, mISignListener);
-//                                }
-//                            })
-//                            .build()
-//                            .post();
+                    RestClient.builder()
+                            .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                            .params("name", mName.getText().toString().trim())
+                            .params("email", mEmail.getText().toString().trim())
+                            .params("phone", mPhone.getText().toString().trim())
+                            .params("password", mPassword.getText().toString().trim())
+                            .success(new ISuccess() {
+                                @Override
+                                public void onSuccess(String response) {
+                                    LatteLogger.json("USER_PROFILE", response);
+                                    SignHandler.onSignUp(response, mISignListener);
+                                }
+                            })
+                            .build()
+                            .post();
 
                 }
                 break;

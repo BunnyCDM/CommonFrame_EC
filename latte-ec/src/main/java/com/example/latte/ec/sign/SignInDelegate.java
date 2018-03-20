@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.example.latte.delegates.LatteDelegate;
 import com.example.latte.ec.R;
 import com.example.latte.ec.R2;
+import com.example.latte.net.RestClient;
+import com.example.latte.net.callback.ISuccess;
+import com.example.latte.util.log.LatteLogger;
 import com.example.latte.wechat.LatteWeChat;
 import com.example.latte.wechat.callbacks.IWeChatSignInCallback;
 
@@ -42,19 +45,19 @@ public class SignInDelegate extends LatteDelegate {
             case R2.id.btn_sign_in:
                 if (checkForm()) {
                     Log.d(TAG, "onClick: 登录验证成功");
-//                    RestClient.builder()
-//                            .url("")
-//                            .params("email", mEmail.getText().toString().trim())
-//                            .params("password", mPassword.getText().toString().trim())
-//                            .success(new ISuccess() {
-//                                @Override
-//                                public void onSuccess(String response) {
-//                                    LatteLogger.json("USER_PROFILE", response);
-//                                    SignHandler.onSignIn(response, mISignListener);
-//                                }
-//                            })
-//                            .build()
-//                            .post();
+                    RestClient.builder()
+                            .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                            .params("email", mEmail.getText().toString().trim())
+                            .params("password", mPassword.getText().toString().trim())
+                            .success(new ISuccess() {
+                                @Override
+                                public void onSuccess(String response) {
+                                    LatteLogger.json("USER_PROFILE", response);
+                                    SignHandler.onSignIn(response, mISignListener);
+                                }
+                            })
+                            .build()
+                            .post();
                 }
                 break;
             case R2.id.tv_link_sign_up:

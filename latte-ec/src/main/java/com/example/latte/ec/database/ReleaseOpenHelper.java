@@ -9,7 +9,7 @@ import org.greenrobot.greendao.database.Database;
  * Created by mac on 2017/10/8.
  */
 
-public class ReleaseOpenHelper extends DaoMaster.OpenHelper{
+public class ReleaseOpenHelper extends DaoMaster.OpenHelper {
 
 
     public ReleaseOpenHelper(Context context, String name) {
@@ -24,4 +24,5 @@ public class ReleaseOpenHelper extends DaoMaster.OpenHelper{
     public void onCreate(Database db) {
         super.onCreate(db);
     }
+
 }

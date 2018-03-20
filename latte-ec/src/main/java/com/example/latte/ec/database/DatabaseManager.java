@@ -11,6 +11,7 @@ import org.greenrobot.greendao.database.Database;
 
 public class DatabaseManager {
 
+    private static final String TAG = DatabaseManager.class.getSimpleName();
     private DaoSession mDaoSession = null;
     private UserProfileDao mDao = null;
 
@@ -27,7 +28,6 @@ public class DatabaseManager {
     private static final class Holder {
         private static final DatabaseManager INSTANCE = new DatabaseManager();
     }
-
 
     public static DatabaseManager getInstance() {
         return Holder.INSTANCE;
