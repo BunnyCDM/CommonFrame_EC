@@ -23,6 +23,6 @@ public class LauncherHolder implements Holder<Integer> {
     @Override
     public void UpdateUI(Context context, int position, Integer data) {
         mImageView.setBackgroundResource(data);
-
     }
+
 }

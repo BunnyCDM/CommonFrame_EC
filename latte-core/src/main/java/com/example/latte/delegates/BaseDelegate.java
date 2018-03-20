@@ -40,24 +40,24 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = null;
+        final View rootView;
 
         if (setLayout() instanceof Integer) {
             rootView = inflater.inflate((int) setLayout(), container, false);
         } else if (setLayout() instanceof View) {
             rootView = (View) setLayout();
+        }else {
+            throw new ClassCastException("type of setLayout() must be int or View!");
         }
-        if (rootView != null) {
-            mUnbinder = ButterKnife.bind(this, rootView);
+        mUnbinder = ButterKnife.bind(this, rootView);
+        onBindView(savedInstanceState, rootView);
 
-            onBindView(savedInstanceState, rootView);
-        }
         return rootView;
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         if (mUnbinder != null) {
             mUnbinder.unbind();
         }

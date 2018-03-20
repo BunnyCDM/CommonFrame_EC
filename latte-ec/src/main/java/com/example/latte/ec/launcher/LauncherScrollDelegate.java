@@ -87,4 +87,5 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
         }
 
     }
+
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.latte.app.AccountManager;
@@ -30,6 +31,7 @@ import butterknife.OnClick;
 
 public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
+    private static final String TAG=LauncherDelegate.class.getSimpleName();
     @BindView(R2.id.tv_launcher_timer)
     AppCompatTextView mTvTimer = null;
 
@@ -62,6 +64,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @Override
     public Object setLayout() {
+        Log.d(TAG, "setLayout: 开始啦");
         return R.layout.delegate_launcher;
     }
 
@@ -75,10 +78,11 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
      */
     private void checkIsShowScroll() {
         if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
-
+            Log.d(TAG, "checkIsShowScroll: false");
             getSupportDelegate().start(new LauncherScrollDelegate(), SINGLETASK);
 
         } else {
+            Log.d(TAG, "checkIsShowScroll: true");
             //检查用户是否登陆了app
             AccountManager.checkAccount(new IUserChecker() {
                 @Override
@@ -119,6 +123,5 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
         });
 
     }
-
 
 }

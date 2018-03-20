@@ -11,7 +11,7 @@ import com.example.latte.app.Latte;
  * Created by mac on 2017/10/8.
  */
 
-public class LattePreference {
+public final class LattePreference {
 
     /**
      * 提示:
@@ -75,6 +75,7 @@ public class LattePreference {
 
     /**
      * 暂时做测试使用
+     *
      * @param key
      * @param val
      */
