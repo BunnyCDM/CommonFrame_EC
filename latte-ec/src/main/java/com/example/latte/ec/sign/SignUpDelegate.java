@@ -49,38 +49,34 @@ public class SignUpDelegate extends LatteDelegate {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-    @OnClick({R2.id.btn_sign_up, R2.id.tv_link_sign_in})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R2.id.btn_sign_up:
-                if (checkForm()) {
-                    Log.d(TAG, "onClick: 验证通过了");
-                    RestClient.builder()
-                            .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
-                            .params("name", mName.getText().toString().trim())
-                            .params("email", mEmail.getText().toString().trim())
-                            .params("phone", mPhone.getText().toString().trim())
-                            .params("password", mPassword.getText().toString().trim())
-                            .success(new ISuccess() {
-                                @Override
-                                public void onSuccess(String response) {
-                                    LatteLogger.json("USER_PROFILE", response);
-                                    SignHandler.onSignUp(response, mISignListener);
-                                }
-                            })
-                            .build()
-                            .post();
+    @OnClick(R2.id.btn_sign_up)
+    public void onClickSignUp() {
+        Log.d(TAG, "onClickSignUp: ");
+        if (checkForm()) {
+            Log.d(TAG, "onClick: 验证通过了");
+            RestClient.builder()
+                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                    .params("name", mName.getText().toString().trim())
+                    .params("email", mEmail.getText().toString().trim())
+                    .params("phone", mPhone.getText().toString().trim())
+                    .params("password", mPassword.getText().toString().trim())
+                    .success(new ISuccess() {
+                        @Override
+                        public void onSuccess(String response) {
+                            LatteLogger.json("USER_PROFILE", response);
+                            SignHandler.onSignUp(response, mISignListener);
+                        }
+                    })
+                    .build()
+                    .post();
 
-                }
-                break;
-            case R2.id.tv_link_sign_in:
-                Log.d(TAG, "onClick: 已经注册了，请登录");
-                getSupportDelegate().start(new SignInDelegate());
-                break;
-            default:
-                break;
         }
+    }
+
+    @OnClick(R2.id.tv_link_sign_in)
+    public void onClickLink() {
+        Log.d(TAG, "onClickLink: ");
+        getSupportDelegate().start(new SignInDelegate());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)

@@ -36,50 +36,8 @@ public class SignInDelegate extends LatteDelegate {
     @BindView(R2.id.edit_sign_in_password)
     TextInputEditText mPassword = null;
 
+
     private ISignListener mISignListener = null;
-
-
-    @OnClick({R2.id.btn_sign_in, R2.id.tv_link_sign_up, R2.id.icon_sign_in_wechat})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R2.id.btn_sign_in:
-                if (checkForm()) {
-                    Log.d(TAG, "onClick: 登录验证成功");
-                    RestClient.builder()
-                            .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
-                            .params("email", mEmail.getText().toString().trim())
-                            .params("password", mPassword.getText().toString().trim())
-                            .success(new ISuccess() {
-                                @Override
-                                public void onSuccess(String response) {
-                                    LatteLogger.json("USER_PROFILE", response);
-                                    SignHandler.onSignIn(response, mISignListener);
-                                }
-                            })
-                            .build()
-                            .post();
-                }
-                break;
-            case R2.id.tv_link_sign_up:
-                getSupportDelegate().start(new SignUpDelegate());
-                break;
-            case R2.id.icon_sign_in_wechat:
-                // TODO: 2017/10/13  微信登录，待续...
-                Log.d(TAG, "onClick: 微信登录");
-                LatteWeChat
-                        .getInstance()
-                        .onSignSuccess(new IWeChatSignInCallback() {
-                            @Override
-                            public void onSignInSuccess(String userInfo) {
-                                Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .signIn();
-                break;
-            default:
-                break;
-        }
-    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -87,6 +45,48 @@ public class SignInDelegate extends LatteDelegate {
         if (activity instanceof ISignListener) {
             mISignListener = (ISignListener) activity;
         }
+    }
+
+    @OnClick(R2.id.btn_sign_in)
+    public void onClickSignIn() {
+        Log.d(TAG, "onClickSignIn: ");
+        if (checkForm()) {
+            Log.d(TAG, "onClick: 登录验证成功");
+            RestClient.builder()
+                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                    .params("email", mEmail.getText().toString().trim())
+                    .params("password", mPassword.getText().toString().trim())
+                    .success(new ISuccess() {
+                        @Override
+                        public void onSuccess(String response) {
+                            LatteLogger.json("USER_PROFILE", response);
+                            SignHandler.onSignIn(response, mISignListener);
+                        }
+                    })
+                    .build()
+                    .post();
+        }
+    }
+
+    @OnClick(R2.id.tv_link_sign_up)
+    public void onClickLink() {
+        Log.d(TAG, "onClickSignIn: ");
+        getSupportDelegate().start(new SignUpDelegate());
+    }
+
+    @OnClick(R2.id.icon_sign_in_wechat)
+    public void onClickWeChat() {
+        Log.d(TAG, "onClickWeChat: ");
+        // TODO: 2017/10/13  微信登录，待续...
+        LatteWeChat
+                .getInstance()
+                .onSignSuccess(new IWeChatSignInCallback() {
+                    @Override
+                    public void onSignInSuccess(String userInfo) {
+                        Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .signIn();
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
