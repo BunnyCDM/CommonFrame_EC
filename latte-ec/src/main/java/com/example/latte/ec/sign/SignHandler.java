@@ -13,7 +13,6 @@ import com.example.latte.ec.database.UserProfile;
 public class SignHandler {
 
     public static void onSignUp(String response, ISignListener signListener) {
-
         final JSONObject profileJson = JSON.parseObject(response).getJSONObject("data");
         final long userId = profileJson.getLong("userId");
         final String name = profileJson.getString("name");
@@ -44,6 +43,6 @@ public class SignHandler {
         //已经注册并登录成功了
         AccountManager.setSignState(true);
         signListener.onSignInSuccess();
-
     }
+
 }
