@@ -5,7 +5,7 @@ import com.example.latte.wechat.LatteWeChat;
 
 /**
  * Created by mac on 2017/10/20.
- *
+ * <p>
  * 模版类
  */
 
@@ -17,7 +17,7 @@ public class WXEntryTemplate extends BaseWXEntryActivity {
         super.onResume();
         finish();
 
-        overridePendingTransition(0, 0);
+        overridePendingTransition(0, 0);//不需要动画
     }
 
     @Override

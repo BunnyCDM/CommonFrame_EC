@@ -5,12 +5,12 @@ import com.example.latte.wechat.templates.WXEntryTemplate;
 
 /**
  * Created by mac on 2017/10/8.
- *
- *把注解写进去
+ * <p>
+ * 把注解写进去
  */
 
 @EntryGenerator(
-        packageName ="com.example.mac.commonframe_ec",
+        packageName = "com.example.mac.commonframe_ec",
         entryTemplate = WXEntryTemplate.class
 )
 public interface WeChatEntry {

@@ -9,7 +9,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 /**
  * Created by mac on 2017/10/20.
- *
+ * <p>
  * 基础微信activity
  */
 
@@ -22,6 +22,7 @@ public abstract class BaseWXActivity extends AppCompatActivity implements IWXAPI
 
         //这个必须写在onCreate中
         LatteWeChat.getInstance().getWXAPI().handleIntent(getIntent(), this);
+
     }
 
     @Override

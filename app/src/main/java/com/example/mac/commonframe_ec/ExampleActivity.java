@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.widget.Toast;
 
 import com.example.latte.activities.ProxyActivity;
+import com.example.latte.app.Latte;
 import com.example.latte.delegates.LatteDelegate;
 import com.example.latte.ec.launcher.LauncherDelegate;
 import com.example.latte.ec.main.EcBottomDelegate;
@@ -27,18 +28,16 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
             actionBar.hide();
         }
 
-//        setContentView(R.layout.activity_main);
-
-//        Latte.getConfigurator().withActivity(this);
+        Latte.getConfigurator().withActivity(this);
 
     }
 
     @Override
     public LatteDelegate setRootDelegate() {
         //return new ExampleDelegate();
-        return new LauncherDelegate();
+        //return new LauncherDelegate();
         //return new SignUpDelegate();
-        //return new SignInDelegate();
+        return new SignInDelegate();
         //return new SignInDelegate();
         //return new EcBottomDelegate();
     }

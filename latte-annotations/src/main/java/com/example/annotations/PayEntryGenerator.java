@@ -11,8 +11,11 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)//仅使用在类上
 @Retention(RetentionPolicy.SOURCE)//在源码处理
+
 public @interface PayEntryGenerator {
+
     String packageName();
 
     Class<?> payEntryTemplate();
+
 }

@@ -17,14 +17,14 @@ public class LatteWeChat {
 
     public static final String APP_ID = Latte.getConfiguration(ConfigKeys.WE_CHAT_APP_ID);
     public static final String APP_SECRET = Latte.getConfiguration(ConfigKeys.WE_CHAT_APP_SECRET);
-    private final IWXAPI WXAPI;
+    private final IWXAPI WXAPI;//无论登录、支付需要该接口
     private IWeChatSignInCallback mSignInCallback = null;
 
     private static final class Holder {
         private static final LatteWeChat INSTANCE = new LatteWeChat();
     }
 
-    public static LatteWeChat getInstance(){
+    public static LatteWeChat getInstance() {
         return Holder.INSTANCE;
     }
 

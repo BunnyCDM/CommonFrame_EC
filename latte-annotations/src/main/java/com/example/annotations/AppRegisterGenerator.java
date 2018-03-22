@@ -13,7 +13,9 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)//仅使用到类上
 @Retention(RetentionPolicy.SOURCE)//在源码处理
+
 public @interface AppRegisterGenerator {
+
     String packageName();
 
     Class<?> registerTemplate();

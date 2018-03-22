@@ -36,7 +36,6 @@ final class AppRegisterVisitor extends SimpleAnnotationValueVisitor7<Void, Void>
         return p;
     }
 
-
     private void generateJavaCode(TypeMirror typeMirror) {
         final TypeSpec targetActivity =
                 TypeSpec.classBuilder("AppRegister")

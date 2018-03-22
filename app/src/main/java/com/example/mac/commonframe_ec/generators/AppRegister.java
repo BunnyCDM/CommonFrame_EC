@@ -5,7 +5,7 @@ import com.example.latte.wechat.templates.AppRegisterTemplate;
 
 /**
  * Created by mac on 2017/10/8.
- *
+ * <p>
  * 把注解写进去
  */
 

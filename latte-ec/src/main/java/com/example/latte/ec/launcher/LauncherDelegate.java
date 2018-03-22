@@ -108,6 +108,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
             @Override
             public void run() {
                 if (mTvTimer != null) {
+
                     mTvTimer.setText(MessageFormat.format("跳过\n{0}s", mCount));
                     mCount--;
                     if (mCount < 0) {

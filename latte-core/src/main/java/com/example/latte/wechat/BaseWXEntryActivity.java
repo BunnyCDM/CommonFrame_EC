@@ -13,7 +13,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 
 /**
  * Created by mac on 2017/10/20.
- *
+ * <p>
  * 登录
  */
 
@@ -84,6 +84,7 @@ public abstract class BaseWXEntryActivity extends BaseWXActivity {
                     public void onSuccess(String response) {
 
                         onSignInSuccess(response);
+
                     }
                 })
                 .failure(new IFailure() {
@@ -101,4 +102,5 @@ public abstract class BaseWXEntryActivity extends BaseWXActivity {
                 .build()
                 .get();
     }
+
 }

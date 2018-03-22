@@ -25,6 +25,7 @@ import javax.lang.model.element.TypeElement;
  * Created by mac on 2017/10/8.
  */
 
+@SuppressWarnings("unused")
 @AutoService(Processor.class)//在本moudle中引入的库，就是简化自动生成的代码
 public final class LatteProcessor extends AbstractProcessor {
 
