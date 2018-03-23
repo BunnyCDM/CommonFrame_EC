@@ -4,15 +4,17 @@ import java.util.LinkedHashMap;
 
 /**
  * Created by mac on 2017/9/16.
+ * <p>
+ * 构造器，创造者把BottomItemDelegate和BottomTabBean连个类结合起来
  */
 
 public final class ItemBuilder {
 
-    private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();
+    private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();//有序序列
 
     static ItemBuilder builder() {
         return new ItemBuilder();
-    }
+    }//简单工厂模式
 
     public final ItemBuilder addItem(BottomTabBean bean, BottomItemDelegate delegate) {
         ITEMS.put(bean, delegate);
@@ -21,10 +23,11 @@ public final class ItemBuilder {
 
     public final ItemBuilder addItems(LinkedHashMap<BottomTabBean, BottomItemDelegate> items) {
         ITEMS.putAll(items);
-        return this;
+        return this;//链式调用
     }
 
     public final LinkedHashMap<BottomTabBean, BottomItemDelegate> build() {
         return ITEMS;
     }
+
 }

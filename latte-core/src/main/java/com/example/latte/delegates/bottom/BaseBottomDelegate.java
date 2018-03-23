@@ -25,6 +25,9 @@ import me.yokeyword.fragmentation.ISupportFragment;
 
 /**
  * Created by mac on 2017/9/16.
+ * <p>
+ * 不打算直接去使用它，所以声明成抽象类
+ * 相当于一个容器，把该包中的类组合起来
  */
 
 public abstract class BaseBottomDelegate extends LatteDelegate implements View.OnClickListener {
@@ -124,4 +127,5 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         mCurrentDelegate = tag;
 
     }
+
 }

@@ -141,4 +141,5 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
     public void onFocusChange(View v, boolean hasFocus) {
 
     }
+
 }

@@ -13,7 +13,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * Created by mac on 2017/10/8.
  */
 
-public class DiscoverDelegate extends BottomItemDelegate{
+public class DiscoverDelegate extends BottomItemDelegate {
 
 
     @Override
@@ -35,4 +35,5 @@ public class DiscoverDelegate extends BottomItemDelegate{
     public FragmentAnimator onCreateFragmentAnimator() {
         return super.onCreateFragmentAnimator();
     }
+
 }

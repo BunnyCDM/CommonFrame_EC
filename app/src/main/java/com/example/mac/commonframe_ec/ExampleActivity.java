@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.example.latte.activities.ProxyActivity;
 import com.example.latte.app.Latte;
 import com.example.latte.delegates.LatteDelegate;
-import com.example.latte.ec.launcher.LauncherDelegate;
 import com.example.latte.ec.main.EcBottomDelegate;
 import com.example.latte.ec.sign.ISignListener;
 import com.example.latte.ec.sign.SignInDelegate;
@@ -37,9 +36,8 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
         //return new ExampleDelegate();
         //return new LauncherDelegate();
         //return new SignUpDelegate();
-        return new SignInDelegate();
         //return new SignInDelegate();
-        //return new EcBottomDelegate();
+        return new EcBottomDelegate();
     }
 
 
@@ -58,12 +56,12 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "启动结束，用户登录了", Toast.LENGTH_LONG).show();
-                //getSupportDelegate().startWithPop(new EcBottomDelegate());
+                getSupportDelegate().startWithPop(new EcBottomDelegate());
                 break;
 
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，用户没登录", Toast.LENGTH_LONG).show();
-                //getSupportDelegate().startWithPop(new SignInDelegate());
+                getSupportDelegate().startWithPop(new SignInDelegate());
                 break;
 
             default:

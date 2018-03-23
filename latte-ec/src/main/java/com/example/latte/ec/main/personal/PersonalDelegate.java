@@ -11,7 +11,7 @@ import com.example.latte.ec.R;
  * Created by mac on 2017/10/8.
  */
 
-public class PersonalDelegate extends BottomItemDelegate{
+public class PersonalDelegate extends BottomItemDelegate {
 
 
     @Override
@@ -23,4 +23,5 @@ public class PersonalDelegate extends BottomItemDelegate{
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
 
     }
+
 }

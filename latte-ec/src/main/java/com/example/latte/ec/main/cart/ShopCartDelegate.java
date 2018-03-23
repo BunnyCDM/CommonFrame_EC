@@ -11,7 +11,7 @@ import com.example.latte.ec.R;
  * Created by mac on 2017/10/8.
  */
 
-public class ShopCartDelegate extends BottomItemDelegate{
+public class ShopCartDelegate extends BottomItemDelegate {
 
 
     @Override
@@ -23,4 +23,5 @@ public class ShopCartDelegate extends BottomItemDelegate{
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
 
     }
+
 }

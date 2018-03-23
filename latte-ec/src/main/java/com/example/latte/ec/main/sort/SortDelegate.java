@@ -11,7 +11,7 @@ import com.example.latte.ec.R;
  * Created by mac on 2017/10/8.
  */
 
-public class SortDelegate extends BottomItemDelegate{
+public class SortDelegate extends BottomItemDelegate {
 
 
     @Override
@@ -28,4 +28,5 @@ public class SortDelegate extends BottomItemDelegate{
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
     }
+
 }

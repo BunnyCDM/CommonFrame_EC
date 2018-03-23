@@ -8,9 +8,11 @@ import com.example.latte.delegates.LatteDelegate;
 
 /**
  * Created by mac on 2017/9/16.
+ *
+ * 每一个fragment的基类
  */
 
-public abstract class BottomItemDelegate extends LatteDelegate{
+public abstract class BottomItemDelegate extends LatteDelegate {
 
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
@@ -26,4 +28,5 @@ public abstract class BottomItemDelegate extends LatteDelegate{
         }
         return true;
     }
+
 }
