@@ -49,7 +49,6 @@ public class RefreshHandler implements
                 })
                 .build()
                 .get();
-
     }
 
     private void paging(final String url) {

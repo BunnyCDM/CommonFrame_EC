@@ -12,11 +12,16 @@ import android.view.View;
 import com.example.latte.delegates.bottom.BottomItemDelegate;
 import com.example.latte.ec.R;
 import com.example.latte.ec.R2;
+import com.example.latte.net.RestClient;
 import com.example.latte.net.RestCreator;
+import com.example.latte.net.callback.ISuccess;
 import com.example.latte.net.rx.RxRestClient;
+import com.example.latte_ui.recycler.MultipleFields;
+import com.example.latte_ui.recycler.MultipleItemEntity;
 import com.example.latte_ui.refresh.RefreshHandler;
 import com.joanzapata.iconify.widget.IconTextView;
 
+import java.util.ArrayList;
 import java.util.WeakHashMap;
 
 import butterknife.BindView;
@@ -152,6 +157,31 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mRefreshHandler = new RefreshHandler(mRefreshLayout);
+
+        RestClient.builder()//测试效果
+                .url("index.php")
+                .success(new ISuccess() {
+                    @Override
+                    public void onSuccess(String response) {
+                        final IndexDataConverter converter = new IndexDataConverter();
+                        converter.setJsonData(response);
+                        final ArrayList<MultipleItemEntity> list = converter.convert();
+                        final String image = list.get(1).getField(MultipleFields.IMAGE_URL);
+                        Log.d(TAG, "onSuccess: image:" + image);
+                    }
+                })
+                .build()
+                .get();
+
+//        mRefreshHandler = RefreshHandler.create(mRefreshLayout, mRecyclerView, new IndexDataConverter());
+//        CallbackManager.getInstance()
+//                .addCallback(CallbackType.ON_SCAN, new IGlobalCallback<String>() {
+//                    @Override
+//                    public void executeCallback(@Nullable String args) {
+//                        Toast.makeText(getContext(), "得到的二维码是" + args, Toast.LENGTH_LONG).show();
+//                    }
+//                });
+//        mSearchView.setOnFocusChangeListener(this);
 
         //onCallRxGet();
 
