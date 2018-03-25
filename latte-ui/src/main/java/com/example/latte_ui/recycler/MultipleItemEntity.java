@@ -4,7 +4,6 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
-import java.security.Key;
 import java.util.LinkedHashMap;
 
 /**
@@ -13,8 +12,8 @@ import java.util.LinkedHashMap;
 
 public class MultipleItemEntity implements MultiItemEntity {
 
-    private final ReferenceQueue<LinkedHashMap<Object, Object>> ITEM_QUEUE = new ReferenceQueue<>();
-    private final LinkedHashMap<Object, Object> MULTIPLE_FIELDS = new LinkedHashMap<>();
+    private final ReferenceQueue<LinkedHashMap<Object, Object>> ITEM_QUEUE = new ReferenceQueue<>();//内存不够可以释放
+    private final LinkedHashMap<Object, Object> MULTIPLE_FIELDS = new LinkedHashMap<>();//有序
     private final SoftReference<LinkedHashMap<Object, Object>> FIELDS_REFERENCE =
             new SoftReference<LinkedHashMap<Object, Object>>(MULTIPLE_FIELDS, ITEM_QUEUE);
 
@@ -44,4 +43,5 @@ public class MultipleItemEntity implements MultiItemEntity {
         FIELDS_REFERENCE.get().put(key, value);
         return this;
     }
+
 }
