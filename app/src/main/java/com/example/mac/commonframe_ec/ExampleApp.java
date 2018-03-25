@@ -26,8 +26,8 @@ public class ExampleApp extends Application {
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())//自定义字体
                 .withLoaderDelayed(1000)
-                .withApiHost("http://127.0.0.1/")//回环（本机地址）
-                .withInterceptor(new DebugInterceptor("index", R.raw.test))
+                .withApiHost("http://192.168.31.80.8080/RestServer/api/")//回环（本机地址）：http://127.0.0.1/
+                .withInterceptor(new DebugInterceptor("test", R.raw.test))//index
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")
                 .configure();
