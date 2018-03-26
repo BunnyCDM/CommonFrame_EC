@@ -2,26 +2,29 @@ package com.example.latte.ec.main.index;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.latte.delegates.bottom.BottomItemDelegate;
 import com.example.latte.ec.R;
 import com.example.latte.ec.R2;
-import com.example.latte.net.RestClient;
+import com.example.latte.ec.main.EcBottomDelegate;
+import com.example.latte.ec.main.index.search.SearchDelegate;
 import com.example.latte.net.RestCreator;
-import com.example.latte.net.callback.ISuccess;
 import com.example.latte.net.rx.RxRestClient;
-import com.example.latte_ui.recycler.MultipleFields;
-import com.example.latte_ui.recycler.MultipleItemEntity;
+import com.example.latte.util.callback.CallbackManager;
+import com.example.latte.util.callback.CallbackType;
+import com.example.latte.util.callback.IGlobalCallback;
+import com.example.latte_ui.recycler.BaseDecoration;
 import com.example.latte_ui.refresh.RefreshHandler;
 import com.joanzapata.iconify.widget.IconTextView;
 
-import java.util.ArrayList;
 import java.util.WeakHashMap;
 
 import butterknife.BindView;
@@ -29,7 +32,6 @@ import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -39,7 +41,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class IndexDelegate extends BottomItemDelegate implements View.OnFocusChangeListener {
 
-    private final static String TAG = IndexDelegate.class.getSimpleName();
     @BindView(R2.id.rv_index)
     RecyclerView mRecyclerView = null;
     @BindView(R2.id.srl_index)
@@ -50,19 +51,18 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
     IconTextView mIconScan = null;
     @BindView(R2.id.et_search_view)
     AppCompatEditText mSearchView = null;
-    @BindView(R2.id.icon_index_message)
-    IconTextView mIconTextView = null;
 
     private RefreshHandler mRefreshHandler = null;
 
     @OnClick(R2.id.icon_index_scan)
-    public void onClickScanQrCode() {
-        Log.d(TAG, "onClickScanQrCode: ");
+    void onClickScanQrCode() {
+        //startScanWithCheck(this.getParentDelegate());
     }
 
 
-    // TODO: 2018/3/19 测试方法，没啥卵用
+    //TODO:测试方法，没啥卵用
     void onCallRxGet() {
+
         final String url = "index.php";
         final WeakHashMap<String, Object> params = new WeakHashMap<>();
 
@@ -71,17 +71,17 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void onSubscribe(@io.reactivex.annotations.NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull String s) {
-
+                    public void onNext(@io.reactivex.annotations.NonNull String s) {
+                        Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
-                    public void onError(@NonNull Throwable e) {
+                    public void onError(@io.reactivex.annotations.NonNull Throwable e) {
 
                     }
 
@@ -92,7 +92,8 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
                 });
     }
 
-    void onCallRxRestClient() {
+    //TODO:测试方法，没啥卵用X2
+    private void onCallRxRestClient() {
         final String url = "index.php";
         RxRestClient.builder()
                 .url(url)
@@ -102,17 +103,17 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void onSubscribe(@io.reactivex.annotations.NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull String s) {
-
+                    public void onNext(@io.reactivex.annotations.NonNull String s) {
+                        Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
-                    public void onError(@NonNull Throwable e) {
+                    public void onError(@io.reactivex.annotations.NonNull Throwable e) {
 
                     }
 
@@ -132,20 +133,20 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
         mRefreshLayout.setProgressViewOffset(true, 120, 300);
     }
 
-
-//    private void initRecyclerView() {
-//        final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
-//        mRecyclerView.setLayoutManager(manager);
-//        mRecyclerView.addItemDecoration
-//                (BaseDecoration.create(ContextCompat.getColor(getContext(), R.color.app_background), 5));
-//        final EcBottomDelegate ecBottomDelegate = getParentDelegate();
-//        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
-//    }
+    private void initRecyclerView() {
+        final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
+        mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.addItemDecoration
+                (BaseDecoration.create(ContextCompat.getColor(getContext(), R.color.app_background), 5));
+        final EcBottomDelegate ecBottomDelegate = getParentDelegate();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
+    }
 
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
+        initRecyclerView();
         mRefreshHandler.firstPage("index.php");
     }
 
@@ -155,43 +156,26 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
     }
 
     @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        mRefreshHandler = new RefreshHandler(mRefreshLayout);
-
-        RestClient.builder()//测试效果
-                .url("index.php")
-                .success(new ISuccess() {
+    public void onBindView(@Nullable Bundle savedInstanceState, @android.support.annotation.NonNull View rootView) {
+        mRefreshHandler = RefreshHandler.create(mRefreshLayout, mRecyclerView, new IndexDataConverter());
+        CallbackManager.getInstance()
+                .addCallback(CallbackType.ON_SCAN, new IGlobalCallback<String>() {
                     @Override
-                    public void onSuccess(String response) {
-                        final IndexDataConverter converter = new IndexDataConverter();
-                        converter.setJsonData(response);
-                        final ArrayList<MultipleItemEntity> list = converter.convert();
-                        final String image = list.get(1).getField(MultipleFields.IMAGE_URL);
-                        Log.d(TAG, "onSuccess: image:" + image);
+                    public void executeCallback(@Nullable String args) {
+                        Toast.makeText(getContext(), "得到的二维码是" + args, Toast.LENGTH_LONG).show();
                     }
-                })
-                .build()
-                .get();
-
-//        mRefreshHandler = RefreshHandler.create(mRefreshLayout, mRecyclerView, new IndexDataConverter());
-//        CallbackManager.getInstance()
-//                .addCallback(CallbackType.ON_SCAN, new IGlobalCallback<String>() {
-//                    @Override
-//                    public void executeCallback(@Nullable String args) {
-//                        Toast.makeText(getContext(), "得到的二维码是" + args, Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//        mSearchView.setOnFocusChangeListener(this);
+                });
+        mSearchView.setOnFocusChangeListener(this);
 
         //onCallRxGet();
-
         //onCallRxRestClient();
     }
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-
+        if (hasFocus) {
+            getParentDelegate().getSupportDelegate().start(new SearchDelegate());
+        }
     }
-
 
 }
