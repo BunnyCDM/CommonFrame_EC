@@ -19,6 +19,8 @@ import java.util.List;
 
 /**
  * Created by mac on 2017/10/12.
+ *
+ * 这个是为了适配多布局而诞生
  */
 
 public class MultipleRecyclerAdapter extends
@@ -60,7 +62,7 @@ public class MultipleRecyclerAdapter extends
         addItemType(ItemType.TEXT, R.layout.item_multiple_text);
         addItemType(ItemType.IMAGE, R.layout.item_multiple_image);
         addItemType(ItemType.TEXT_IMAGE, R.layout.item_multiple_image_text);
-        addItemType(ItemType.BANNER, R.layout.item_multiple_banner);
+        addItemType(ItemType.BANNER, R.layout.item_multiple_banner);//轮播图
         //设置宽度监听
         setSpanSizeLookup(this);
         openLoadAnimation();
@@ -119,7 +121,7 @@ public class MultipleRecyclerAdapter extends
 
     @Override
     public void onItemClick(int position) {
-
+        //需要再说，预留接口
     }
 
 }

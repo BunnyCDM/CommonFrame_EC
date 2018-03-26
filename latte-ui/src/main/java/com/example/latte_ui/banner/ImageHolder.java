@@ -30,10 +30,10 @@ public class ImageHolder implements Holder<String> {
 
     @Override
     public void UpdateUI(Context context, int position, String data) {
-
         Glide.with(context)
                 .load(data)
                 .apply(BANNER_OPTIONS)
                 .into(mImageView);
     }
+
 }
