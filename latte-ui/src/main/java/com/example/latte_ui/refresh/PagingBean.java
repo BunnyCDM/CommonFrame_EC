@@ -2,6 +2,8 @@ package com.example.latte_ui.refresh;
 
 /**
  * Created by mac on 2017/10/12.
+ * <p>
+ * 储存分页相关数据，为了能够实现链式调用，所以就返回对象本身（return this;）
  */
 
 public final class PagingBean {

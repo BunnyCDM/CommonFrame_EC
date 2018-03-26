@@ -59,7 +59,6 @@ public class IndexDataConverter extends DataConverter {
             ENTITIES.add(entity);
 
         }
-
         return ENTITIES;
     }
 

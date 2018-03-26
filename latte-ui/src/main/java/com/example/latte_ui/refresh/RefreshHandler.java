@@ -28,11 +28,6 @@ public class RefreshHandler implements
     private MultipleRecyclerAdapter mAdapter = null;
     private final DataConverter CONVERTER;
 
-//    public RefreshHandler(SwipeRefreshLayout swipeRefreshLayout) {
-//        this.REFRESH_LAYOUT = swipeRefreshLayout;
-//        REFRESH_LAYOUT.setOnRefreshListener(this);
-//    }
-
     public RefreshHandler(SwipeRefreshLayout swipeRefreshLayout,
                           RecyclerView recyclerView,
                           DataConverter converter, PagingBean bean) {
@@ -43,6 +38,7 @@ public class RefreshHandler implements
         REFRESH_LAYOUT.setOnRefreshListener(this);
     }
 
+    //简单工厂模式
     public static RefreshHandler create(SwipeRefreshLayout swipeRefreshLayout,
                                         RecyclerView recyclerView, DataConverter converter) {
         return new RefreshHandler(swipeRefreshLayout, recyclerView, converter, new PagingBean());
@@ -60,6 +56,7 @@ public class RefreshHandler implements
     }
 
     public void firstPage(String url) {
+        //BEAN.setDelayed(1000);
         RestClient.builder()
                 .url(url)
                 .success(new ISuccess() {
@@ -101,6 +98,7 @@ public class RefreshHandler implements
                                     mAdapter.addData(CONVERTER.setJsonData(response).convert());
                                     //累加数量
                                     BEAN.setCurrentCount(mAdapter.getData().size());
+                                    //mAdapter.setOnLoadMoreListener(RefreshHandler.this,RECYCLERVIEW);
                                     mAdapter.loadMoreComplete();
                                     BEAN.addIndex();
                                 }

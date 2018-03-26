@@ -134,6 +134,7 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
     }
 
     private void initRecyclerView() {
+        //初始化布局，网格布局
         final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration
