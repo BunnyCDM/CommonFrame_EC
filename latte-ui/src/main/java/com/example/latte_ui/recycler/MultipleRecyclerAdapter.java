@@ -19,8 +19,12 @@ import java.util.List;
 
 /**
  * Created by mac on 2017/10/12.
- *
+ * <p>
  * 这个是为了适配多布局而诞生
+ * <p>
+ * 继承BaseMultiItemQuickAdapter：
+ * 第一个泛型MultipleItemEntity是数据实体类型；
+ * 第二个MultipleViewHolder是ViewHolder其目的是为了支持扩展ViewHolder；
  */
 
 public class MultipleRecyclerAdapter extends
@@ -58,16 +62,14 @@ public class MultipleRecyclerAdapter extends
     }
 
     private void init() {
-        //设置不同的item布局
+        //设置不同的item布局，addItemType绑定type和layout的关系
         addItemType(ItemType.TEXT, R.layout.item_multiple_text);
         addItemType(ItemType.IMAGE, R.layout.item_multiple_image);
         addItemType(ItemType.TEXT_IMAGE, R.layout.item_multiple_image_text);
         addItemType(ItemType.BANNER, R.layout.item_multiple_banner);//轮播图
-        //设置宽度监听
-        setSpanSizeLookup(this);
-        openLoadAnimation();
-        //多次执行动画
-        isFirstOnly(false);
+        setSpanSizeLookup(this);//设置宽度监听
+        openLoadAnimation();//开启动画（默认为渐变效果）
+        isFirstOnly(false);//动画默认只执行一次，若想多次执行动画设置为false
     }
 
     @Override
@@ -116,12 +118,13 @@ public class MultipleRecyclerAdapter extends
 
     @Override
     public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
+        //复用item
         return getData().get(position).getField(MultipleFields.SPAN_SIZE);
     }
 
     @Override
     public void onItemClick(int position) {
-        //需要再说，预留接口
+        //item的点击事件，需要再说，预留接口
     }
 
 }

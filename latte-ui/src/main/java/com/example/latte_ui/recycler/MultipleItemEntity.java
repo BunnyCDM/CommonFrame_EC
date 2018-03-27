@@ -8,6 +8,8 @@ import java.util.LinkedHashMap;
 
 /**
  * Created by mac on 2017/10/12.
+ * <p>
+ * 实体类必须实现MultiItemEntity，在设置的时候需要给每一个数据设置itemType
  */
 
 public class MultipleItemEntity implements MultiItemEntity {

@@ -67,6 +67,7 @@ public class RefreshHandler implements
                         BEAN.setTotal(object.getInteger("total")).setPageSize(object.getInteger("page_size"));
                         //设置Adapter
                         mAdapter = MultipleRecyclerAdapter.create(CONVERTER.setJsonData(response));
+                        //滑动最后一个Item的时候回调onLoadMoreListener方法
                         mAdapter.setOnLoadMoreListener(RefreshHandler.this, RECYCLERVIEW);
                         RECYCLERVIEW.setAdapter(mAdapter);
                         BEAN.addIndex();
@@ -83,6 +84,7 @@ public class RefreshHandler implements
         final int index = BEAN.getPageIndex();
 
         if (mAdapter.getData().size() < pageSize || currentCount >= total) {
+            //数据加载完毕
             mAdapter.loadMoreEnd(true);
         } else {
             Latte.getHandler().postDelayed(new Runnable() {
@@ -95,13 +97,15 @@ public class RefreshHandler implements
                                 public void onSuccess(String response) {
                                     LatteLogger.json("RefreshHandler", response);
                                     CONVERTER.clearData();
+                                    //成功获取更多数据
                                     mAdapter.addData(CONVERTER.setJsonData(response).convert());
                                     //累加数量
                                     BEAN.setCurrentCount(mAdapter.getData().size());
-                                    //mAdapter.setOnLoadMoreListener(RefreshHandler.this,RECYCLERVIEW);
+                                    //加载完成
                                     mAdapter.loadMoreComplete();
                                     BEAN.addIndex();
                                 }
+
                             })
                             .build()
                             .get();
