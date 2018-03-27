@@ -5,8 +5,10 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.example.latte.delegates.bottom.BottomItemDelegate;
+import com.example.latte.delegates.web.WebDelegateImpl;
 import com.example.latte.ec.R;
 
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
@@ -33,7 +35,7 @@ public class DiscoverDelegate extends BottomItemDelegate {
 
     @Override
     public FragmentAnimator onCreateFragmentAnimator() {
-        return super.onCreateFragmentAnimator();
+        return new DefaultHorizontalAnimator();
     }
 
 }

@@ -18,7 +18,7 @@ public class DividerLookupImpl implements DividerItemDecoration.DividerLookup {
     }
 
     @Override
-    public Divider getVerticalDivider(int position) {
+    public Divider getVerticalDivider(int position) {//处理垂直属性
         return new Divider.Builder()
                 .size(SIZE)
                 .color(COLOR)
@@ -26,10 +26,11 @@ public class DividerLookupImpl implements DividerItemDecoration.DividerLookup {
     }
 
     @Override
-    public Divider getHorizontalDivider(int position) {
+    public Divider getHorizontalDivider(int position) {//处理横向属性
         return new Divider.Builder()
                 .size(SIZE)
                 .color(COLOR)
                 .build();
     }
+
 }

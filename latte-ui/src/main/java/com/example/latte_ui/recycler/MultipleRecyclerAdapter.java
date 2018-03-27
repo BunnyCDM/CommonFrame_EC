@@ -13,6 +13,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.latte_ui.R;
 import com.example.latte_ui.banner.BannerCreator;
+import com.example.latte_ui.image.GlideApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +39,9 @@ public class MultipleRecyclerAdapter extends
     //设置图片加载策略
     private static final RequestOptions RECYCLER_OPTIONS =
             new RequestOptions()
-                    .centerCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .dontAnimate();
+                    .centerCrop()//剪裁方式
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)//缓存方式
+                    .dontAnimate();//动画方式
 
     protected MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
@@ -93,6 +94,10 @@ public class MultipleRecyclerAdapter extends
                         .load(imageUrl)
                         .apply(RECYCLER_OPTIONS)
                         .into((ImageView) holder.getView(R.id.img_single));
+
+//                GlideApp.with()
+//                        .load()
+//                        .centerCrop();
                 break;
             case ItemType.TEXT_IMAGE:
                 text = entity.getField(MultipleFields.TEXT);
