@@ -14,12 +14,16 @@ import com.example.latte_ui.recycler.RgbValue;
  * Created by mac on 2017/10/8.
  */
 
+@SuppressWarnings("unused")
 public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
 
+    //顶部距离
     private int mDistanceY = 0;
 
+    //颜色变化速度
     private static final int SHOW_SPEED = 3;
 
+    //定义变化的颜色
     private final RgbValue RGB_VALUE = RgbValue.create(255, 124, 2);
 
     public TranslucentBehavior(Context context, AttributeSet attrs) {
@@ -33,7 +37,7 @@ public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
 
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, Toolbar child, View directTargetChild, View target, int nestedScrollAxes) {
-        return true;
+        return true;//接管的意思
     }
 
     @Override
@@ -49,8 +53,8 @@ public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
             final float scale = (float) mDistanceY / targetHeight;
             final float alpha = scale * 255;
             child.setBackgroundColor(Color.argb((int) alpha, RGB_VALUE.red(), RGB_VALUE.green(), RGB_VALUE.blue()));
-        }else if(mDistanceY>targetHeight){
-            child.setBackgroundColor(Color.rgb(RGB_VALUE.red(),RGB_VALUE.green(),RGB_VALUE.blue()));
+        } else if (mDistanceY > targetHeight) {
+            child.setBackgroundColor(Color.rgb(RGB_VALUE.red(), RGB_VALUE.green(), RGB_VALUE.blue()));
         }
     }
 }

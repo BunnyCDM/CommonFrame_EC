@@ -4,6 +4,10 @@ import com.google.auto.value.AutoValue;
 
 /**
  * Created by mac on 2017/10/12.
+ * <p>
+ * 用于存储红、绿、蓝颜色值的
+ *
+ * 定义成抽象类，是因为我想使用google的AutoValue
  */
 
 @AutoValue
