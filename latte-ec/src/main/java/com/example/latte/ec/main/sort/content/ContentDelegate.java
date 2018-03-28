@@ -24,7 +24,7 @@ public class ContentDelegate extends LatteDelegate {
 
     private static final String ARG_CONTENT_ID = "CONTENT_ID";
     private int mContentId = -1;
-    private List<SectionBean> mDate = null;
+    private List<SectionBean> mData = null;//数据
 
     @BindView(R2.id.rv_list_content)
     RecyclerView mRecyclerView;
@@ -54,11 +54,16 @@ public class ContentDelegate extends LatteDelegate {
 
     private void initData() {
         RestClient.builder()
-                .url("sort_content_list.php?contentId=" + mContentId)
+                .url("sort_content_list.php?contentId=" + mContentId)//典型get请求拼接请求
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-
+                        //这个response就是数据返回的data
+                        mData = new SectionDataConverter().convert(response);
+                        final SectionAdapter sectionAdapter =
+                                new SectionAdapter(R.layout.item_section_content,
+                                        R.layout.item_section_header, mData);
+                        mRecyclerView.setAdapter(sectionAdapter);
                     }
                 })
                 .build()
@@ -68,6 +73,7 @@ public class ContentDelegate extends LatteDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
 
+        //使用瀑布流
         final StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
         initData();
