@@ -6,6 +6,8 @@ import com.example.latte.app.Latte;
 import com.example.latte.ec.database.DatabaseManager;
 import com.example.latte.ec.icon.FontEcModule;
 import com.example.latte.net.interceptors.DebugInterceptor;
+import com.example.latte.net.rx.AddCookieInterceptor;
+import com.example.mac.commonframe_ec.event.TestEvent;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
@@ -30,6 +32,11 @@ public class ExampleApp extends Application {
                 .withInterceptor(new DebugInterceptor("test", R.raw.test))//index
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")
+                .withJavascriptInterface("latte")
+                .withWebEvent("test", new TestEvent())
+                //添加Cookie同步拦截器
+                .withWebHost("https://www.baidu.com/")
+                .withInterceptor(new AddCookieInterceptor())
                 .configure();
 
         DatabaseManager.getInstance().init(this);

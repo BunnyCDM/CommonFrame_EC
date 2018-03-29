@@ -11,6 +11,7 @@ import com.example.latte.delegates.web.WebDelegate;
  */
 
 public abstract class Event implements IEvent {
+
     private Context mContent = null;
     private String mAction = null;
     private WebDelegate mDelegate = null;
@@ -21,7 +22,7 @@ public abstract class Event implements IEvent {
         return mContent;
     }
 
-    public WebView getWebView(){
+    public WebView getWebView() {
         return mDelegate.getWebView();
     }
 
@@ -52,4 +53,5 @@ public abstract class Event implements IEvent {
     public void setUrl(String mUrl) {
         this.mUrl = mUrl;
     }
+
 }

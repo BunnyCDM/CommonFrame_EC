@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
+import com.example.latte.delegates.web.event.Event;
+import com.example.latte.delegates.web.event.EventManager;
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -108,8 +110,14 @@ public class Configurator {
         return this;
     }
 
-    public Configurator withJavascriptInterface(@NonNull String name) {
+    public Configurator withJavascriptInterface(@NonNull String name) {//添加注入
         LATTE_CONFIGS.put(ConfigKeys.JAVASCRIPT_INTERFACE, name);
+        return this;
+    }
+
+    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
+        final EventManager manager = EventManager.getInstance();
+        manager.addEvent(name, event);
         return this;
     }
 
