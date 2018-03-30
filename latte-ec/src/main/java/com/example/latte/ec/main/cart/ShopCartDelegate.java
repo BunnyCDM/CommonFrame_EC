@@ -16,7 +16,8 @@ public class ShopCartDelegate extends BottomItemDelegate {
 
     @Override
     public Object setLayout() {
-        return R.layout.delegate_shop_cart;
+        //return R.layout.delegate_shop_cart;
+        return R.layout.item_shop_cart;
     }
 
     @Override
