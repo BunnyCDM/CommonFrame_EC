@@ -37,6 +37,7 @@ public class RestClientBuilder {
     private File mFile = null;
     private Context mContext = null;
 
+
     RestClientBuilder() {
 
     }
@@ -51,7 +52,7 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder params(String key, String value) {
+    public final RestClientBuilder params(String key, Object value) {
         this.mPARAMS.put(key, value);
         return this;
     }
