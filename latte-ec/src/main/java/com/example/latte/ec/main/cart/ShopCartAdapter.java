@@ -97,6 +97,7 @@ public class ShopCartAdapter extends MultipleRecyclerAdapter {
                 //在左侧勾勾渲染之前改变全选与否状态
                 entity.setField(ShopCartItemFields.IS_SELECTED, mIsSelectedAll);
                 final boolean isSelected = entity.getField(ShopCartItemFields.IS_SELECTED);
+
                 //根据数据状态显示左侧勾勾
                 if (isSelected) {
                     iconIsSelected.setTextColor

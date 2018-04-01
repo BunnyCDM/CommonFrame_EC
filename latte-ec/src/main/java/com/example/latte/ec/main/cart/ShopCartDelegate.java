@@ -60,6 +60,8 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
             mAdapter.setIsSelectedAll(true);
             //更新RecyclerView的显示状态
             mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
+            //是一次更新所有，这样对内存消耗还是比较大的，所以替换成notifyItemRangeChanged
+            //mAdapter.notifyDataSetChanged();
         } else {
             mIconSelectAll.setTextColor(Color.GRAY);
             mIconSelectAll.setTag(0);
@@ -83,7 +85,8 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
             int removePosition;
             final int entityPosition = entity.getField(ShopCartItemFields.POSITION);
             if (entityPosition > mCurrentCount - 1) {
-                removePosition = entityPosition - (mTotalCount - mCurrentCount);
+                //removePosition = entityPosition - (mTotalCount - mCurrentCount);
+                removePosition = entityPosition -mCurrentCount;
             } else {
                 removePosition = entityPosition;
             }
