@@ -85,10 +85,19 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
             int removePosition;
             final int entityPosition = entity.getField(ShopCartItemFields.POSITION);
             if (entityPosition > mCurrentCount - 1) {
-                //removePosition = entityPosition - (mTotalCount - mCurrentCount);
-                removePosition = entityPosition -mCurrentCount;
+                removePosition = entityPosition - (mTotalCount - mCurrentCount);
+                if (removePosition < 0) {
+                    removePosition = 0;
+                }
             } else {
-                removePosition = entityPosition;
+                if (mTotalCount - mCurrentCount > 0) {
+                    removePosition = entityPosition - (mTotalCount - mCurrentCount);
+                    if (removePosition < 0) {
+                        removePosition = entityPosition;
+                    }
+                } else {
+                    removePosition = entityPosition;
+                }
             }
             if (removePosition <= mAdapter.getItemCount()) {
                 mAdapter.remove(removePosition);
@@ -186,7 +195,9 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
                 new ShopCartDataConverter()
                         .setJsonData(response)
                         .convert();
+        mTotalCount = data.size();
         mAdapter = new ShopCartAdapter(data);
+        mCurrentCount = mAdapter.getItemCount();
         mAdapter.setCartItemListener(this);
         final LinearLayoutManager manager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(manager);
