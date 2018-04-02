@@ -27,8 +27,6 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public abstract class BaseDelegate extends Fragment implements ISupportFragment {
 
-    private static final String TAG = BaseDelegate.class.getSimpleName();
-
     private final SupportFragmentDelegate DELEGATE = new SupportFragmentDelegate(this);
 
     protected FragmentActivity _mActivity = null;

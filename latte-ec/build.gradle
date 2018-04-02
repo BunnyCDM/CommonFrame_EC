@@ -29,13 +29,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-
     compile project(':latte-ui')
 
     //圆形图片
     compile 'de.hdodenhof:circleimageview:2.1.0'
 
-
+    //引入支付宝jar，这句话可以注释，是因为compile fileTree(include: ['*.jar'], dir: 'libs')这句话
+    //compile files('libs/alipaySdk-20161222.jar')
 }
