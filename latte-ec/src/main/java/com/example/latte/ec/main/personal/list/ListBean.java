@@ -7,10 +7,11 @@ import com.example.latte.delegates.LatteDelegate;
 
 /**
  * Created by mac on 2017/10/8.
+ * <p>
+ * 数据转换层
  */
 
 public class ListBean implements MultiItemEntity {
-
 
     private int mItemType = 0;
     private String mImageUrl = null;
@@ -66,8 +67,8 @@ public class ListBean implements MultiItemEntity {
         return mItemType;
     }
 
-    public static final class Builder {
 
+    public static final class Builder {
         private int id = 0;
         private int itemType = 0;
         private String imageUrl = null;
