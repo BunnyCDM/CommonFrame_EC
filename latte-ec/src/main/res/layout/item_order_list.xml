@@ -18,6 +18,7 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             tools:ignore="RtlHardcoded" />
+
     </FrameLayout>
 
     <LinearLayout
@@ -58,7 +59,9 @@
                 android:gravity="left|center"
                 android:text="time"
                 tools:ignore="RtlHardcoded" />
+
         </LinearLayout>
+
     </LinearLayout>
 
     <com.joanzapata.iconify.widget.IconTextView

@@ -25,10 +25,10 @@ import butterknife.BindView;
 
 public class OrderListDelegate extends LatteDelegate {
 
-    private String mType = null;
-
     @BindView(R2.id.rv_order_list)
     RecyclerView mRecyclerView = null;
+
+    private String mType = null;
 
     @Override
     public Object setLayout() {
@@ -49,6 +49,7 @@ public class OrderListDelegate extends LatteDelegate {
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
+        //放在这里面处理是因为这样不会出现加载过程中出现的透明
         RestClient.builder()
                 .loader(getContext())
                 .url("order_list.php")

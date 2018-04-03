@@ -56,6 +56,7 @@ public class OrderListAdapter extends MultipleRecyclerAdapter {
                 price.setText("价格：" + String.valueOf(priceVal));
                 time.setText("时间：" + timeVal);
                 break;
+
             default:
                 break;
         }

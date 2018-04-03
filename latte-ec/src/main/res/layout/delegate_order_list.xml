@@ -19,6 +19,7 @@
             android:text="订单列表"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView

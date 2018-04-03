@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 /**
  * Created by mac on 2017/10/8.
+ * <p>
+ * 数据转换层
  */
 
 public class OrderListDataConverter extends DataConverter {
@@ -28,14 +30,13 @@ public class OrderListDataConverter extends DataConverter {
             final double price = data.getDouble("price");
             final String time = data.getString("time");
 
-
             final MultipleItemEntity entity = MultipleItemEntity.builder()
                     .setItemType(OrderListItemType.ITEM_ORDER_LIST)
                     .setField(MultipleFields.ID, id)
                     .setField(MultipleFields.IMAGE_URL, thumb)
                     .setField(MultipleFields.TITLE, title)
                     .setField(OrderItemFields.PRICE, price)
-                    .setField(OrderItemFields.TIME,time)
+                    .setField(OrderItemFields.TIME, time)
                     .build();
 
             ENTITIES.add(entity);
