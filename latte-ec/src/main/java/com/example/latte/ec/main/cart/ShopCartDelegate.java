@@ -127,13 +127,13 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
     private void createOrder() {
         final String orderUrl = "http://app.api.zanzuanshi.com/api/v1/peyment";//你的生成订单的API
         final WeakHashMap<String, Object> orderParams = new WeakHashMap<>();
-        orderParams.put("userid",264392);
-        orderParams.put("amount",0.01);
-        orderParams.put("comment","测试支付");
-        orderParams.put("type",1);
-        orderParams.put("ordertype",0);
-        orderParams.put("isanonymous",true);
-        orderParams.put("followeduser",0);
+        orderParams.put("userid", 264392);
+        orderParams.put("amount", 0.01);
+        orderParams.put("comment", "测试支付");
+        orderParams.put("type", 1);
+        orderParams.put("ordertype", 0);
+        orderParams.put("isanonymous", true);
+        orderParams.put("followeduser", 0);
 
         //加入你的参数
         RestClient.builder()
@@ -174,6 +174,16 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
         }
+
+        // TODO: 2018/4/3 start
+        mAdapter = new ShopCartAdapter(mAdapter.getData());
+        mAdapter.setCartItemListener(this);
+        final LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.setAdapter(mAdapter);
+        mTotalPrice = mAdapter.getTotalPrice();
+        mTvTotalPrice.setText(String.valueOf(mTotalPrice));
+        // TODO: 2018/4/3 end
     }
 
     @Override

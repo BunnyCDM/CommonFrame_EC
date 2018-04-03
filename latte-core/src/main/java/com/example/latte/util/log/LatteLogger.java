@@ -10,6 +10,7 @@ import com.orhanobut.logger.Logger;
 
 public class LatteLogger {
 
+    private static final String TAG=LatteLogger.class.getSimpleName();
     private static final int VERBOSE = 1;
     private static final int DEBUG = 2;
     private static final int INFO = 3;
@@ -26,7 +27,7 @@ public class LatteLogger {
         }
     }
 
-    public static void d(String tag, String message) {
+    public static void d(String tag, Object message) {
         if (LEVEL <= DEBUG) {
             Logger.t(tag).d(message);
         }
@@ -34,7 +35,7 @@ public class LatteLogger {
 
     public static void d(Object message) {
         if (LEVEL <= DEBUG) {
-            Logger.d(message);
+            Logger.d(TAG,message);
         }
     }
 
@@ -59,6 +60,12 @@ public class LatteLogger {
     public static void e(String tag, String message) {
         if (LEVEL <= ERROR) {
             Logger.t(tag).e(message);
+        }
+    }
+
+    public static void e(String message) {
+        if (LEVEL <= ERROR) {
+            Logger.e(TAG,message);
         }
     }
 
