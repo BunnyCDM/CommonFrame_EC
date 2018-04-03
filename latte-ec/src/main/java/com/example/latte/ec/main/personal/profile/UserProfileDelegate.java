@@ -77,4 +77,5 @@ public class UserProfileDelegate extends LatteDelegate {
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.addOnItemTouchListener(new UserProfileClickListener(this));
     }
+
 }

@@ -13,6 +13,7 @@ import com.example.latte.ec.R;
  */
 
 public class NameDelegate extends LatteDelegate {
+
     @Override
     public Object setLayout() {
         return R.layout.delegate_name;
@@ -22,4 +23,5 @@ public class NameDelegate extends LatteDelegate {
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
 
     }
+
 }

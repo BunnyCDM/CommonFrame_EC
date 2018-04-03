@@ -16,8 +16,8 @@ import java.util.Locale;
  */
 
 public class DateDialogUtil {
-    public interface IDateListener {
 
+    public interface IDateListener {
         void onDateChange(String date);
     }
 
@@ -43,7 +43,7 @@ public class DateDialogUtil {
                 calendar.set(year, monthOfYear, dayOfMonth);
                 final SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日", Locale.getDefault());
                 final String data = format.format(calendar.getTime());
-                if(mDateListener!=null){
+                if (mDateListener != null) {
                     mDateListener.onDateChange(data);
                 }
             }
@@ -68,4 +68,5 @@ public class DateDialogUtil {
                 })
                 .show();
     }
+
 }

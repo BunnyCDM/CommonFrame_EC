@@ -136,4 +136,5 @@ public class UserProfileClickListener extends SimpleClickListener {
     public void onItemChildLongClick(BaseQuickAdapter adapter, View view, int position) {
 
     }
+
 }
