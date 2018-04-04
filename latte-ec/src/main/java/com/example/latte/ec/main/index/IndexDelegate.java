@@ -56,7 +56,7 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
 
     @OnClick(R2.id.icon_index_scan)
     void onClickScanQrCode() {
-        //startScanWithCheck(this.getParentDelegate());
+        startScanWithCheck(this.getParentDelegate());
     }
 
 
