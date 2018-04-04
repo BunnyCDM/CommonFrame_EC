@@ -52,7 +52,7 @@
             android:layout_toRightOf="@id/img_order_comment"
             android:text="评分"
             android:textColor="#323232" />
-        
+
         <com.example.latte_ui.widget.StarLayout
             android:id="@+id/custom_star_layout"
             android:layout_width="match_parent"

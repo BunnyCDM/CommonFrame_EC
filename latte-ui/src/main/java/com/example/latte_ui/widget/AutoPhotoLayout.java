@@ -308,4 +308,5 @@ public final class AutoPhotoLayout extends LinearLayoutCompat {
         initAddIcon();
         mTargetDialog = new AlertDialog.Builder(getContext()).create();
     }
+
 }

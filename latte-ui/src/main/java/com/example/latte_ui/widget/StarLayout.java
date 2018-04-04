@@ -102,4 +102,5 @@ public class StarLayout extends LinearLayoutCompat implements View.OnClickListen
             unSelectStar(count);
         }
     }
+
 }

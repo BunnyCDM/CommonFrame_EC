@@ -9,12 +9,12 @@ import com.chad.library.adapter.base.listener.SimpleClickListener;
  * Created by mac on 2017/10/8.
  */
 
-public class OrderListClickListener extends SimpleClickListener{
+public class OrderListClickListener extends SimpleClickListener {
 
     private final OrderListDelegate DELEGATE;
 
-    public OrderListClickListener(OrderListDelegate DELEGATE){
-        this.DELEGATE=DELEGATE;
+    public OrderListClickListener(OrderListDelegate DELEGATE) {
+        this.DELEGATE = DELEGATE;
     }
 
     @Override
@@ -36,4 +36,5 @@ public class OrderListClickListener extends SimpleClickListener{
     public void onItemChildLongClick(BaseQuickAdapter adapter, View view, int position) {
 
     }
+
 }

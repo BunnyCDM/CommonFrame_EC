@@ -69,4 +69,5 @@ public class OrderListDelegate extends LatteDelegate {
                 .build()
                 .get();
     }
+
 }

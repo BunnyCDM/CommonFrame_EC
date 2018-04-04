@@ -29,7 +29,6 @@ import butterknife.OnClick;
 
 public class OrderCommentDelegate extends LatteDelegate {
 
-
     @BindView(R2.id.top_tv_comment_commit)
     AppCompatTextView topTvCommentCommit;
     @BindView(R2.id.tb_shop_cart)

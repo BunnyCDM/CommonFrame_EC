@@ -61,4 +61,5 @@ public class OrderListAdapter extends MultipleRecyclerAdapter {
                 break;
         }
     }
+
 }
