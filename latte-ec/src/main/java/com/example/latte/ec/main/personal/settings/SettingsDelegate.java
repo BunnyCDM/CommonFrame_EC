@@ -29,7 +29,6 @@ import butterknife.BindView;
 
 public class SettingsDelegate extends LatteDelegate {
 
-
     @BindView(R2.id.rv_settings)
     RecyclerView mRecyclerView = null;
 
@@ -40,7 +39,6 @@ public class SettingsDelegate extends LatteDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
         final ListBean push = new ListBean.Builder()
                 .setItemType(ListItemType.ITEM_SWITCH)
                 .setId(1)

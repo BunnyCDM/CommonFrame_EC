@@ -49,4 +49,5 @@ public class SettingsClickListener extends SimpleClickListener {
     public void onItemChildLongClick(BaseQuickAdapter adapter, View view, int position) {
 
     }
+
 }

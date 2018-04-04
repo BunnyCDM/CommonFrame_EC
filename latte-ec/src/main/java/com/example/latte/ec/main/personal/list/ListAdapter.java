@@ -58,5 +58,6 @@ public class ListAdapter extends BaseMultiItemQuickAdapter<ListBean, BaseViewHol
                 break;
         }
     }
+
 }
 

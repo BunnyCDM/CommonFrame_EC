@@ -45,4 +45,5 @@ public class AboutDelegate extends LatteDelegate {
                 .build()
                 .get();
     }
+
 }
