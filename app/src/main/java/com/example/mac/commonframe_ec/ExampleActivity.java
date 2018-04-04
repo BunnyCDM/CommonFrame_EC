@@ -14,6 +14,7 @@ import com.example.latte.ec.sign.SignInDelegate;
 import com.example.latte_ui.launcher.ILauncherListener;
 import com.example.latte_ui.launcher.OnLauncherFinishTag;
 
+import cn.jpush.android.api.JPushInterface;
 import qiu.niorgai.StatusBarCompat;
 
 public class ExampleActivity extends ProxyActivity implements ISignListener, ILauncherListener {
@@ -28,7 +29,19 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
         }
 
         Latte.getConfigurator().withActivity(this);
-        StatusBarCompat.translucentStatusBar(this,true);
+        StatusBarCompat.translucentStatusBar(this, true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
 
     @Override

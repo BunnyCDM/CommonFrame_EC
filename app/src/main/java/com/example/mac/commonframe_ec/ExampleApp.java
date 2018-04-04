@@ -14,6 +14,8 @@ import com.example.latte.util.callback.IGlobalCallback;
 import com.example.mac.commonframe_ec.event.TestEvent;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by mac on 2017/9/16.
  */
@@ -46,28 +48,27 @@ public class ExampleApp extends Application {
         DatabaseManager.getInstance().init(this);
 
 
-
         //开启极光推送
-//        JPushInterface.setDebugMode(true);
-//        JPushInterface.init(this);
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
 
         CallbackManager.getInstance()
                 .addCallback(CallbackType.TAG_OPEN_PUSH, new IGlobalCallback() {
                     @Override
                     public void executeCallback(@Nullable Object args) {
-//                        if (JPushInterface.isPushStopped(Latte.getApplicationContext())) {
-//                            //开启极光推送
-//                            JPushInterface.setDebugMode(true);
-//                            JPushInterface.init(Latte.getApplicationContext());
-//                        }
+                        if (JPushInterface.isPushStopped(Latte.getApplicationContext())) {
+                            //开启极光推送
+                            JPushInterface.setDebugMode(true);
+                            JPushInterface.init(Latte.getApplicationContext());
+                        }
                     }
                 })
                 .addCallback(CallbackType.TAG_STOP_PUSH, new IGlobalCallback() {
                     @Override
                     public void executeCallback(@Nullable Object args) {
-//                        if (!JPushInterface.isPushStopped(Latte.getApplicationContext())) {
-//                            JPushInterface.stopPush(Latte.getApplicationContext());
-//                        }
+                        if (!JPushInterface.isPushStopped(Latte.getApplicationContext())) {
+                            JPushInterface.stopPush(Latte.getApplicationContext());
+                        }
                     }
                 });
 
