@@ -27,7 +27,7 @@ public class ScannerDelegate extends LatteDelegate implements ZBarScannerView.Re
         if (mScanView == null) {
             mScanView = new ScanView(getContext());
         }
-        mScanView.setAutoFocus(true);
+        mScanView.setAutoFocus(true);//自动对焦
         mScanView.setResultHandler(this);
     }
 
@@ -44,7 +44,7 @@ public class ScannerDelegate extends LatteDelegate implements ZBarScannerView.Re
     public void onResume() {
         super.onResume();
         if (mScanView != null) {
-            mScanView.startCamera();
+            mScanView.startCamera();//开始扫描
         }
     }
 
@@ -53,7 +53,7 @@ public class ScannerDelegate extends LatteDelegate implements ZBarScannerView.Re
         super.onPause();
         if (mScanView != null) {
             mScanView.stopCameraPreview();
-            mScanView.stopCamera();
+            mScanView.stopCamera();//停止扫描
         }
     }
 
@@ -66,6 +66,6 @@ public class ScannerDelegate extends LatteDelegate implements ZBarScannerView.Re
         if (callback != null) {
             callback.executeCallback(result.getContents());
         }
-        getSupportDelegate().pop();
+        getSupportDelegate().pop();//退出
     }
 }

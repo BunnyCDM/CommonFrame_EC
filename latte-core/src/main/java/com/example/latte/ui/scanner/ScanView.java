@@ -24,4 +24,5 @@ public class ScanView extends ZBarScannerView {
     protected IViewFinder createViewFinderView(Context context) {
         return new LatteViewFinderView(context);
     }
+
 }

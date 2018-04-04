@@ -18,8 +18,9 @@ public class LatteViewFinderView extends ViewFinderView {
 
     public LatteViewFinderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        mSquareViewFinder = true;
+        mSquareViewFinder = true;//正方形
         mBorderPaint.setColor(Color.YELLOW);
         mLaserPaint.setColor(Color.YELLOW);
     }
+
 }
