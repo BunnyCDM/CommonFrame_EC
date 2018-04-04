@@ -10,6 +10,7 @@ public class CallbackManager {
 
     private static final WeakHashMap<Object, IGlobalCallback> CALLBACKS = new WeakHashMap<>();
 
+    //惰性单类
     private static class Holder {
         private static final CallbackManager INSTANCE = new CallbackManager();
     }
@@ -26,6 +27,5 @@ public class CallbackManager {
     public IGlobalCallback getCallback(Object tag) {
         return CALLBACKS.get(tag);
     }
-
 
 }

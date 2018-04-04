@@ -9,11 +9,13 @@ import android.net.Uri;
  */
 
 public final class CameraImageBean {
+
     private Uri mPath = null;
 
     private static final CameraImageBean INSTANCE = new CameraImageBean();
 
-    public static CameraImageBean getInstance(){
+    //饿汉单类模式
+    public static CameraImageBean getInstance() {
         return INSTANCE;
     }
 
@@ -24,4 +26,5 @@ public final class CameraImageBean {
     public void setPath(Uri mPath) {
         this.mPath = mPath;
     }
+
 }

@@ -22,7 +22,7 @@ import java.io.File;
 
 /**
  * Created by mac on 2017/9/16.
- *
+ * <p>
  * 照片处理类
  */
 

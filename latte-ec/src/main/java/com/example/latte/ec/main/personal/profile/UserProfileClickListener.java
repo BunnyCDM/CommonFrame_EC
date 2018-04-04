@@ -53,6 +53,7 @@ public class UserProfileClickListener extends SimpleClickListener {
                                         .load(args)
                                         .into(avatar);
 
+                                //上传
                                 RestClient.builder()
                                         .url(UploadConfig.UPLOAD_IMG)
                                         .loader(DELEGATE.getContext())

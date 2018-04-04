@@ -35,7 +35,7 @@ public abstract class PermissionCheckerDelegate extends BaseDelegate {
 
     //不是直接调用的方法
     @NeedsPermission(Manifest.permission.CAMERA)
-    void startCamera(){
+    void startCamera() {
         LatteCamera.start(this);
     }
 
@@ -46,16 +46,16 @@ public abstract class PermissionCheckerDelegate extends BaseDelegate {
 
     //扫面二维码（不直接调用）
     @NeedsPermission(Manifest.permission.CAMERA)
-    void startScan(BaseDelegate delegate){
+    void startScan(BaseDelegate delegate) {
         delegate.getSupportDelegate().startForResult(new ScannerDelegate(), RequestCodes.SCAN);
     }
 
     public void startScanWithCheck(BaseDelegate delegate) {
-        PermissionCheckerDelegatePermissionsDispatcher.startScanWithCheck(this,delegate);
+        PermissionCheckerDelegatePermissionsDispatcher.startScanWithCheck(this, delegate);
     }
 
     @OnPermissionDenied(Manifest.permission.CAMERA)
-    void onCameraDenied(){
+    void onCameraDenied() {
         Toast.makeText(getContext(), "不允许拍照", Toast.LENGTH_LONG).show();
     }
 
