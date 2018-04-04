@@ -64,4 +64,5 @@ public class AddressAdapter extends MultipleRecyclerAdapter {
                 break;
         }
     }
+
 }

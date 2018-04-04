@@ -19,7 +19,6 @@ public class PersonalClickListener extends SimpleClickListener {
         this.DELEGATE = DELEGATE;
     }
 
-
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         final ListBean bean = (ListBean) baseQuickAdapter.getData().get(position);
@@ -50,4 +49,5 @@ public class PersonalClickListener extends SimpleClickListener {
     public void onItemChildLongClick(BaseQuickAdapter adapter, View view, int position) {
 
     }
+
 }

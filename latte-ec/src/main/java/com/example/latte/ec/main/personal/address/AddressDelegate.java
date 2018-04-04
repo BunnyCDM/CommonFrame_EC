@@ -53,4 +53,5 @@ public class AddressDelegate extends LatteDelegate implements ISuccess {
         final AddressAdapter addressAdapter = new AddressAdapter(data);
         mRecyclerView.setAdapter(addressAdapter);
     }
+
 }
