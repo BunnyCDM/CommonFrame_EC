@@ -166,6 +166,7 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
                         Toast.makeText(getContext(), "得到的二维码是" + args, Toast.LENGTH_LONG).show();
                     }
                 });
+
         mSearchView.setOnFocusChangeListener(this);
 
         //onCallRxGet();
