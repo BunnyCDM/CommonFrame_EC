@@ -11,6 +11,7 @@ import com.example.latte.net.rx.AddCookieInterceptor;
 import com.example.latte.util.callback.CallbackManager;
 import com.example.latte.util.callback.CallbackType;
 import com.example.latte.util.callback.IGlobalCallback;
+import com.example.mac.commonframe_ec.event.ShareEvent;
 import com.example.mac.commonframe_ec.event.TestEvent;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
@@ -40,6 +41,7 @@ public class ExampleApp extends Application {
                 .withWeChatAppSecret("")
                 .withJavascriptInterface("latte")
                 .withWebEvent("test", new TestEvent())
+                .withWebEvent("share", new ShareEvent())
                 //添加Cookie同步拦截器
                 .withWebHost("https://www.baidu.com/")
                 .withInterceptor(new AddCookieInterceptor())
