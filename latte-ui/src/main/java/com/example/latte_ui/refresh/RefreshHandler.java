@@ -77,11 +77,12 @@ public class RefreshHandler implements
                 .get();
     }
 
+    //分页功能
     private void paging(final String url) {
         final int pageSize = BEAN.getPageSize();
         final int currentCount = BEAN.getCurrentCount();
         final int total = BEAN.getTotal();
-        final int index = BEAN.getPageIndex();
+        final int index = BEAN.getPageIndex();//当前页码数
 
         if (mAdapter.getData().size() < pageSize || currentCount >= total) {
             //数据加载完毕
