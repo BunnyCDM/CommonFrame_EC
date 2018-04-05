@@ -64,7 +64,9 @@
             android:text="购物车"
             android:textSize="12sp" />
 
-        <com.flj.latte.ui.widget.CircleTextView
+
+
+        <com.example.latte_ui.widget.CircleTextView
             android:id="@+id/tv_shopping_cart_amount"
             android:layout_width="20dp"
             android:layout_height="20dp"

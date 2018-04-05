@@ -13,11 +13,13 @@ import android.util.AttributeSet;
 
 /**
  * Created by mac on 2017/10/12.
+ * <p>
+ * 自定义布局
  */
 
 public class CircleTextView extends AppCompatTextView {
 
-    private final Paint PAINT;
+    private final Paint PAINT;//背景画笔
     private final PaintFlagsDrawFilter FILTER;
 
 
@@ -51,6 +53,7 @@ public class CircleTextView extends AppCompatTextView {
     public void draw(Canvas canvas) {
         canvas.setDrawFilter(FILTER);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, PAINT);
-        super.draw(canvas);
+        super.draw(canvas);//一定要放在最下面，因为要先初始化我们自己先定义的东西
     }
+
 }
