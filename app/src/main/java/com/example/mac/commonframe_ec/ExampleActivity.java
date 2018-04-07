@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.example.latte.activities.ProxyActivity;
 import com.example.latte.app.Latte;
 import com.example.latte.delegates.LatteDelegate;
+import com.example.latte.ec.launcher.LauncherDelegate;
 import com.example.latte.ec.main.EcBottomDelegate;
 import com.example.latte.ec.sign.ISignListener;
 import com.example.latte.ec.sign.SignInDelegate;
@@ -46,11 +47,11 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
 
     @Override
     public LatteDelegate setRootDelegate() {
-        //return new ExampleDelegate();
+        return new ExampleDelegate();
         //return new LauncherDelegate();
         //return new SignUpDelegate();
         //return new SignInDelegate();
-        return new EcBottomDelegate();
+        //return new EcBottomDelegate();
     }
 
 

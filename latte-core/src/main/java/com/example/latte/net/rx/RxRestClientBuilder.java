@@ -19,16 +19,12 @@ public final class RxRestClientBuilder {
     private final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     private String mUrl = null;
     private RequestBody mBody = null;
-    private Context mContext = null;
     private LoaderStyle mLoaderStyle = null;
     private File mFile = null;
+    private Context mContext = null;
+
 
     RxRestClientBuilder() {
-    }
-
-    public final RxRestClientBuilder url(String url) {
-        this.mUrl = url;
-        return this;
     }
 
     public final RxRestClientBuilder params(WeakHashMap<String, Object> params) {
@@ -41,13 +37,8 @@ public final class RxRestClientBuilder {
         return this;
     }
 
-    public final RxRestClientBuilder file(File file) {
-        this.mFile = file;
-        return this;
-    }
-
-    public final RxRestClientBuilder file(String file) {
-        this.mFile = new File(file);
+    public final RxRestClientBuilder url(String url) {
+        this.mUrl = url;
         return this;
     }
 
@@ -65,6 +56,16 @@ public final class RxRestClientBuilder {
     public final RxRestClientBuilder loader(Context context) {
         this.mContext = context;
         this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
+        return this;
+    }
+
+    public final RxRestClientBuilder file(File file) {
+        this.mFile = file;
+        return this;
+    }
+
+    public final RxRestClientBuilder file(String file) {
+        this.mFile = new File(file);
         return this;
     }
 

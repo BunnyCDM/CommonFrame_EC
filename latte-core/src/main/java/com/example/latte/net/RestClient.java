@@ -28,9 +28,9 @@ import retrofit2.Callback;
 
 public class RestClient {
 
-    private final String URL;
     //private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final WeakHashMap<String, Object> PARAMS;
+    private final String URL;
     private final IRequest REQUEST;
     private final String DOWNLOAD_DIR;//下载后文件储存位置
     private final String EXTENSION;//后缀名
@@ -39,10 +39,9 @@ public class RestClient {
     private final IFailure FAILURE;
     private final IError ERROR;
     private final RequestBody BODY;
-    private final LoaderStyle lOADER_STYLE;
     private final File FILE;
     private final Context CONTEXT;
-
+    private final LoaderStyle lOADER_STYLE;
 
     public RestClient(String url,
                       WeakHashMap<String, Object> params,

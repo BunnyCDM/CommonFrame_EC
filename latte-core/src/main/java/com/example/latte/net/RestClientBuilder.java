@@ -22,43 +22,41 @@ import okhttp3.RequestBody;
 
 public class RestClientBuilder {
 
-    private String mURL = null;
-    //private static final Map<String, Object> mPARAMS = RestCreator.getParams();//内存管理更精确
-    private final WeakHashMap<String, Object> mPARAMS = new WeakHashMap<>();//内存管理更精确
-    private IRequest mIREQUEST = null;
+    //private static final Map<String, Object> PARAMS = RestCreator.getParams();//内存管理更精确
+    private final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();//内存管理更精确
+    private String mUrl = null;
+    private IRequest mIRequest = null;
     private String mDownloadDir = null;
     private String mExtension = null;
     private String mName = null;
-    private ISuccess mISUCCESS = null;
-    private IFailure mIFAILURE = null;
-    private IError mIERROR = null;
-    private RequestBody mBODY = null;
-    private LoaderStyle mLoaderStyle = null;
+    private ISuccess mISuccess = null;
+    private IFailure mIFailure = null;
+    private IError mIError = null;
+    private RequestBody mBody = null;
     private File mFile = null;
     private Context mContext = null;
-
+    private LoaderStyle mLoaderStyle = null;
 
     RestClientBuilder() {
-
-    }
-
-    public final RestClientBuilder url(String url) {//觉得这个方法很好不需要优化就加上final，好处java编译器很好的优化
-        this.mURL = url;
-        return this;
     }
 
     public final RestClientBuilder params(WeakHashMap<String, Object> params) {
-        this.mPARAMS.putAll(params);
+        this.PARAMS.putAll(params);
         return this;
     }
 
     public final RestClientBuilder params(String key, Object value) {
-        this.mPARAMS.put(key, value);
+        this.PARAMS.put(key, value);
+        return this;
+    }
+
+    public final RestClientBuilder url(String url) { //觉得这个方法很好不需要优化就加上final，好处java编译器很好的优化
+        this.mUrl = url;
         return this;
     }
 
     public final RestClientBuilder onRequest(IRequest iRequest) {
-        this.mIREQUEST = iRequest;
+        this.mIRequest = iRequest;
         return this;
     }
 
@@ -73,17 +71,17 @@ public class RestClientBuilder {
     }
 
     public final RestClientBuilder success(ISuccess isuccess) {
-        this.mISUCCESS = isuccess;
+        this.mISuccess = isuccess;
         return this;
     }
 
     public final RestClientBuilder failure(IFailure ifailure) {
-        this.mIFAILURE = ifailure;
+        this.mIFailure = ifailure;
         return this;
     }
 
     public final RestClientBuilder error(IError iError) {
-        this.mIERROR = iError;
+        this.mIError = iError;
         return this;
     }
 
@@ -110,7 +108,7 @@ public class RestClientBuilder {
     }
 
     public final RestClientBuilder raw(String raw) {
-        this.mBODY = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
+        this.mBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
         return this;
     }
 
@@ -120,11 +118,11 @@ public class RestClientBuilder {
     }
 
     public final RestClient build() {
-        return new RestClient(mURL, mPARAMS,
+        return new RestClient(mUrl, PARAMS,
                 mDownloadDir, mExtension,
-                mName, mIREQUEST, mISUCCESS,
-                mIFAILURE, mIERROR,
-                mBODY, mFile,
+                mName, mIRequest, mISuccess,
+                mIFailure, mIError,
+                mBody, mFile,
                 mContext, mLoaderStyle);
     }
 

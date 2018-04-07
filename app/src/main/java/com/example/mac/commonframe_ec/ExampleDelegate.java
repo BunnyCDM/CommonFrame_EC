@@ -13,6 +13,8 @@ import com.example.latte.net.callback.ISuccess;
 
 /**
  * Created by mac on 2017/9/16.
+ *
+ * 测试类
  */
 
 public class ExampleDelegate extends LatteDelegate {
