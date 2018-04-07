@@ -61,11 +61,6 @@ public class Configurator {
         Utils.init(Latte.getApplicationContext());//初始化工具包
     }
 
-    public final Configurator withApiHost(String host) {
-        LATTE_CONFIGS.put(ConfigKeys.API_HOST, host);
-        return this;
-    }
-
     private void initIcons() {
         if (ICONS.size() > 0) {
             final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
@@ -82,6 +77,11 @@ public class Configurator {
 
     public final Configurator withLoaderDelayed(long delayed) {
         LATTE_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
+        return this;
+    }
+
+    public final Configurator withApiHost(String host) {
+        LATTE_CONFIGS.put(ConfigKeys.API_HOST, host);
         return this;
     }
 

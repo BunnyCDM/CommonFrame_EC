@@ -49,7 +49,6 @@ public class ExampleApp extends Application {
 
         DatabaseManager.getInstance().init(this);
 
-
         //开启极光推送
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
@@ -74,6 +73,6 @@ public class ExampleApp extends Application {
                     }
                 });
 
-
     }
+
 }

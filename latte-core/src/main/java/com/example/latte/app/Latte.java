@@ -3,8 +3,6 @@ package com.example.latte.app;
 import android.content.Context;
 import android.os.Handler;
 
-import java.util.HashMap;
-
 /**
  * Created by mac on 2017/9/11.
  * <p>
@@ -36,14 +34,4 @@ public final class Latte {
         return getConfiguration(ConfigKeys.HANDLER);
     }
 
-    public static void test() {
-    }
-
-//        public static Context getApplication() {
-//        return (Context) getConfigurations().get(ConfigKeys.APPLICATION_CONTEXT);
-//    }
-
-//    public static HashMap<Object, Object> getConfigurations() {
-//        return Configurator.getInstance().getLatteConfigs();
-//    }
 }
