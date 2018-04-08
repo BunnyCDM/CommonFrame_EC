@@ -22,7 +22,7 @@ allprojects {
     repositories {
         jcenter()
 
-        mavenCentral()
+        mavenCentral()//butterknife
 
         maven { url "https://jitpack.io" } //BaseRecyclerViewAdapterHelper
     }

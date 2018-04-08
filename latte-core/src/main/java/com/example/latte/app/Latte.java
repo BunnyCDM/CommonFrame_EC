@@ -6,6 +6,7 @@ import android.os.Handler;
 /**
  * Created by mac on 2017/9/11.
  * <p>
+ * 因为不需要更改该类所以前面加final
  * 因为对外工具类所以都是静态static
  */
 

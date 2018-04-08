@@ -41,7 +41,6 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View rootView;
-
         if (setLayout() instanceof Integer) {
             rootView = inflater.inflate((int) setLayout(), container, false);
         } else if (setLayout() instanceof View) {
@@ -51,7 +50,6 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment 
         }
         mUnbinder = ButterKnife.bind(this, rootView);
         onBindView(savedInstanceState, rootView);
-
         return rootView;
     }
 

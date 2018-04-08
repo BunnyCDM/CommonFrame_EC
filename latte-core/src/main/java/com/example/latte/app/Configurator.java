@@ -136,7 +136,7 @@ public class Configurator {
         }
     }
 
-    final <T> T getConfiguration(Object key) {
+    final <T> T getConfiguration(Object key) {//泛型，也可以其他字母
         checkConfiguration();
         final Object value = LATTE_CONFIGS.get(key);
         if (value == null) {

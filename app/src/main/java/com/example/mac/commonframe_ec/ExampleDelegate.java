@@ -21,7 +21,8 @@ public class ExampleDelegate extends LatteDelegate {
 
     @Override
     public Object setLayout() {
-        return R.layout.delegate_example;
+        //return R.layout.delegate_example;
+        return R.layout.activity_main;
     }
 
     @Override
