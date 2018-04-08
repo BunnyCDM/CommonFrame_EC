@@ -62,7 +62,6 @@ public class IndexDelegate extends BottomItemDelegate implements View.OnFocusCha
 
     //TODO:测试方法，没啥卵用
     void onCallRxGet() {
-
         final String url = "index.php";
         final WeakHashMap<String, Object> params = new WeakHashMap<>();
 

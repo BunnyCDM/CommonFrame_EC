@@ -21,9 +21,9 @@ public class LatteLoader {
     private static final int LOADER_SIZE_SCALE = 8;//宽高比
     private static final int LOADER_OFFSET_SCALE = 10;//偏移量
 
-    private static final ArrayList<AppCompatDialog> LOADERS = new ArrayList<>();
+    private static final ArrayList<AppCompatDialog> LOADERS = new ArrayList<>();//存储所有loader，方便管理
 
-    private static final String DEFAULT_LOADER = LoaderStyle.BallClipRotatePulseIndicator.name();
+    private static final String DEFAULT_LOADER = LoaderStyle.BallClipRotatePulseIndicator.name();//默认loader样式
 
     public static void showLoading(Context context, Enum<LoaderStyle> type) {
         showLoading(context, type.name());
@@ -68,4 +68,5 @@ public class LatteLoader {
 
         }
     }
+
 }

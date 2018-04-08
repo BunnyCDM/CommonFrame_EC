@@ -18,8 +18,8 @@ import okhttp3.ResponseBody;
 
 public class DebugInterceptor extends BaseInterceptor {
 
-    private final String DEBUG_URL;
-    private final int DEBUG_RAW_ID;
+    private final String DEBUG_URL;//模拟url
+    private final int DEBUG_RAW_ID;//response返回值，打算暂时放在app/res/raw下
 
     public DebugInterceptor(String debugUrl, int rawId) {
         this.DEBUG_URL = debugUrl;
@@ -28,12 +28,12 @@ public class DebugInterceptor extends BaseInterceptor {
 
     private Response getResponse(Chain chain, String json) {
         return new Response.Builder()
-                .code(200)
+                .code(200)//成功是200
                 .addHeader("Content-Type", "application/json")
                 .body(ResponseBody.create(MediaType.parse("application/json"), json))
                 .message("OK")
                 .request(chain.request())
-                .protocol(Protocol.HTTP_1_1)
+                .protocol(Protocol.HTTP_1_1)//大部分是，2。0还没普及
                 .build();
     }
 

@@ -24,4 +24,5 @@ public class DimenUtil {
         final DisplayMetrics dm = resources.getDisplayMetrics();
         return dm.heightPixels;
     }
+
 }

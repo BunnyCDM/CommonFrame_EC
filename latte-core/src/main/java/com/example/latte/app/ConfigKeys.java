@@ -13,7 +13,7 @@ public enum ConfigKeys {
     CONFIG_READY,//初始化是否完成
     ICON,//字体
     LOADER_DELAYED,
-    INTERCEPTOR,
+    INTERCEPTOR,//模拟请求
     WE_CHAT_APP_ID,
     WE_CHAT_APP_SECRET,
     ACTIVITY,

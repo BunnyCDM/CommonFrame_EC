@@ -77,7 +77,7 @@ public final class RestCreator {
     }
 
     /**
-     * Service接口
+     * 构建Service接口
      */
     private static final class RestServiceHolder {
         private static final RestService REST_SERVICE =
@@ -89,7 +89,7 @@ public final class RestCreator {
     }
 
     /**
-     * Service接口
+     * 构建Service接口
      */
     private static final class RxRestServiceHolder {
         private static final RxRestService REST_SERVICE =

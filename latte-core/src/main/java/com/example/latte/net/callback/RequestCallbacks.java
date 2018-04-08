@@ -20,7 +20,7 @@ public final class RequestCallbacks implements Callback<String> {
     private final IFailure FAILURE;
     private final IError ERROR;
     private final LoaderStyle LOADER_STYLE;
-    private static final Handler HANDLER = new Handler();//handler尽量声明成staic类型，这样避免一些内存泄漏
+    private static final Handler HANDLER = new Handler();//加个延迟，handler尽量声明成staic类型，这样避免一些内存泄漏
 
     public RequestCallbacks(IRequest request,
                             ISuccess success,
@@ -74,4 +74,5 @@ public final class RequestCallbacks implements Callback<String> {
             }, 1000);
         }
     }
+
 }

@@ -18,6 +18,15 @@ buildscript {
     }
 }
 
+//阿里国内镜像，下载速度很快，从此告别添加依赖后再等上十分钟
+//allprojects {
+//    repositories {
+//        mavenCentral()//butterknife
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        maven { url "https://jitpack.io" } //BaseRecyclerViewAdapterHelper
+//    }
+//}
+
 allprojects {
     repositories {
         jcenter()

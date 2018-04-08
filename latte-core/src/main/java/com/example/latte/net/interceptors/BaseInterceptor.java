@@ -9,6 +9,9 @@ import okhttp3.Request;
 
 /**
  * Created by mac on 2017/9/16.
+ * <p>
+ * 基础拦截器
+ * 实现okhttp3 Interceptor接口
  */
 
 public abstract class BaseInterceptor implements Interceptor {
