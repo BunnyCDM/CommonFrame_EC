@@ -24,11 +24,13 @@ import retrofit2.Callback;
  * Created by mac on 2017/9/16.
  * <p>
  * 请求具体实现类
+ * <p>
+ * 网络请求一般有哪些参数
  */
 
 public class RestClient {
 
-    //private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
+    //private  final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final WeakHashMap<String, Object> PARAMS;
     private final String URL;
     private final IRequest REQUEST;
@@ -131,6 +133,8 @@ public class RestClient {
                 ERROR,
                 lOADER_STYLE);
     }
+
+    //以下为具体实现方法
 
     public final void get() {
         request(HttpMethod.GET);

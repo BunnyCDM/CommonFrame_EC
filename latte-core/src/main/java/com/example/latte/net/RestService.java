@@ -30,24 +30,24 @@ public interface RestService {
     @GET
     Call<String> get(@Url String url, @QueryMap Map<String, Object> params);
 
-    @FormUrlEncoded
+    @FormUrlEncoded//post请求需要添加
     @POST
     Call<String> post(@Url String url, @FieldMap Map<String, Object> params);
 
     @POST
-    Call<String> postRaw(@Url String url, @Body RequestBody body);
+    Call<String> postRaw(@Url String url, @Body RequestBody body);//传入原始数据，不需要FormUrlEncoded
 
-    @FormUrlEncoded
+    @FormUrlEncoded//put请求需要添加
     @PUT
     Call<String> put(@Url String url, @FieldMap Map<String, Object> params);
 
     @PUT
-    Call<String> putRaw(@Url String url, @Body RequestBody body);
+    Call<String> putRaw(@Url String url, @Body RequestBody body);//传入原始数据，不需要FormUrlEncoded
 
     @DELETE
     Call<String> delete(@Url String url, @QueryMap Map<String, Object> params);
 
-    @Streaming//避免一次性写入过大的文件造成内存益处或闪退
+    @Streaming//避免一次性写入过大的文件造成内存益处或闪退，下载返回的是请求体ResponseBody
     @GET
     Call<ResponseBody> download(@Url String url, @QueryMap Map<String, Object> params);
 

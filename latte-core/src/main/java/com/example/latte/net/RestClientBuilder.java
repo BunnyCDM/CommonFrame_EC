@@ -22,7 +22,7 @@ import okhttp3.RequestBody;
 
 public class RestClientBuilder {
 
-    //private static final Map<String, Object> PARAMS = RestCreator.getParams();//内存管理更精确
+    //private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();//内存管理更精确
     private final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();//内存管理更精确
     private String mUrl = null;
     private IRequest mIRequest = null;
@@ -37,7 +37,7 @@ public class RestClientBuilder {
     private Context mContext = null;
     private LoaderStyle mLoaderStyle = null;
 
-    RestClientBuilder() {
+    RestClientBuilder() {//不允许外部类直接new它，只允许同包去new它
     }
 
     public final RestClientBuilder params(WeakHashMap<String, Object> params) {
@@ -102,12 +102,12 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder file(String file) {
+    public final RestClientBuilder file(String file) {//其实是filepath
         this.mFile = new File(file);
         return this;
     }
 
-    public final RestClientBuilder raw(String raw) {
+    public final RestClientBuilder raw(String raw) {//原始数据
         this.mBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
         return this;
     }

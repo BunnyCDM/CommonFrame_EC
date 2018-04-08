@@ -13,7 +13,7 @@ import com.example.latte.net.callback.ISuccess;
 
 /**
  * Created by mac on 2017/9/16.
- *
+ * <p>
  * 测试类
  */
 
@@ -56,6 +56,7 @@ public class ExampleDelegate extends LatteDelegate {
                     }
                 })
                 .build()
-                .get();
+                .get();//具体实现方法
     }
+
 }
