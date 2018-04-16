@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'com.jakewharton.butterknife'
+
 android {
     signingConfigs {
         release {
@@ -66,4 +68,8 @@ dependencies {
 //    compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
 //    compile files('libs/ShareSDK-Wechat-Favorite-2.8.0.jar')
 //    compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
+
+    //ButterKnife依赖
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 }

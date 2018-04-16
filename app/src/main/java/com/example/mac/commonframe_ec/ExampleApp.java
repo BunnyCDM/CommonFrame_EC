@@ -27,10 +27,6 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-//        Latte.init(this)
-//                .withApiHost("http://127.0.0.1/")//回环（本机地址）
-//                .configure();
-
         Latte.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())//自定义字体
