@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 public abstract class WebDelegate extends LatteDelegate implements IWebViewInitializer {
 
     private WebView mWebView = null;
-    private final ReferenceQueue<WebView> WEB_VIEW_QUEUE = new ReferenceQueue<>();
+    private final ReferenceQueue<WebView> WEB_VIEW_QUEUE = new ReferenceQueue<>();//若引用或软引用
     private String mUrl = null;
     private boolean mIsWebViewAvailable = false;//为什么要添加这个flag（WebViewFragment：想看其源码需要降低sdk）
     private LatteDelegate mTopDelegate = null;
@@ -55,8 +55,9 @@ public abstract class WebDelegate extends LatteDelegate implements IWebViewIniti
                 mWebView.setWebViewClient(initializer.initWebViewClient());
                 mWebView.setWebChromeClient(initializer.initWebChromeClient());
                 final String name = Latte.getConfiguration(ConfigKeys.JAVASCRIPT_INTERFACE);
+                //Javascript，是用来和原生webview进行交互的
                 mWebView.addJavascriptInterface(LatteWebInterface.create(this), name);
-                mIsWebViewAvailable = true;
+                mIsWebViewAvailable = true;//标记，WebView可以使用了
             } else {
                 throw new NullPointerException("Initializer is null!");
             }

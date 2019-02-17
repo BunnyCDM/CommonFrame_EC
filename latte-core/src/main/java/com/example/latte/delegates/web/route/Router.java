@@ -41,26 +41,34 @@ public class Router {
         }
 
         final LatteDelegate topDelegate = delegate.getTopDelegate();
-
         final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
         topDelegate.getSupportDelegate().start(webDelegate);
+
+//        final LatteDelegate parentDelegate = delegate.getTopDelegate();
+//        final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
+//        if (parentDelegate==null){
+//            delegate.getSupportDelegate().start(delegate);
+//        }else {
+//            parentDelegate.getSupportDelegate().start(webDelegate);
+//        }
+
 
         return true;
     }
 
-    private void loadWebPage(WebView webView, String url) {//web页面的load
+    private void loadWebPage(WebView webView, String url) { //web页面的load
         if (webView != null) {
-            webView.loadUrl(url);
+            webView.loadUrl(url);//webview渲染
         } else {
             throw new NullPointerException("WebView is null!");
         }
     }
 
-    private void loadLocalPage(WebView webView, String url) {//本地页面的load
+    private void loadLocalPage(WebView webView, String url) { //本地页面的load
         loadWebPage(webView, "file:///android_asset/" + url);
     }
 
-    private void loadPage(WebView webView, String url) {
+    private void loadPage(WebView webView, String url) { //共有方法
         if (URLUtil.isNetworkUrl(url) || URLUtil.isAssetUrl(url)) {
             loadWebPage(webView, url);
         } else {
@@ -76,7 +84,7 @@ public class Router {
         final Intent intent = new Intent(Intent.ACTION_DIAL);//提醒用户要不要打电话
         final Uri data = Uri.parse(uri);
         intent.setData(data);
-        ContextCompat.startActivity(context, intent, null);
+        ContextCompat.startActivity(context, intent, null);//使用这种方式比较谨慎点
     }
 
 }

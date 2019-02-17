@@ -24,9 +24,11 @@ public class WebDelegateImpl extends WebDelegate {
 
     private IPageLoadListener mIPageLoadListener = null;
 
+    //简单工厂创建
     public static WebDelegateImpl create(String url) {
         final Bundle args = new Bundle();
         args.putString(RouteKeys.URL.name(), url);
+        //自举，自己创建自己
         final WebDelegateImpl delegate = new WebDelegateImpl();
         delegate.setArguments(args);
         return delegate;

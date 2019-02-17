@@ -39,7 +39,7 @@ public class DiscoverDelegate extends BottomItemDelegate {
 
     @Override
     public FragmentAnimator onCreateFragmentAnimator() {
-        return new DefaultHorizontalAnimator();
+        return new DefaultHorizontalAnimator();//跳转
     }
 
 }
