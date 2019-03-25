@@ -64,7 +64,7 @@ public final class RestCreator {
     }
 
     /**
-     * 构建全局Retrofit客户端
+     * 构建全局Retrofit客户端，内部类holder
      */
     private static final class RetrofitHolder {
         private static final String BASE_URL = Latte.getConfiguration(ConfigKeys.API_HOST);

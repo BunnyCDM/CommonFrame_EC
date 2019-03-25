@@ -50,8 +50,10 @@ public class SignInDelegate extends LatteDelegate {
         Log.d(TAG, "onClickSignIn: ");
         if (checkForm()) {
             Log.d(TAG, "onClick: 登录验证成功");
+            Toast.makeText(getContext(), "登录验证成功", Toast.LENGTH_SHORT).show();
             RestClient.builder()
-                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                    //.url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                    .url("http://mock.fulingjie.com/mock/data/user_profile.json")
                     .params("email", mEmail.getText().toString().trim())
                     .params("password", mPassword.getText().toString().trim())
                     .success(new ISuccess() {

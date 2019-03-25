@@ -13,9 +13,12 @@ import com.example.latte.util.callback.CallbackType;
 import com.example.latte.util.callback.IGlobalCallback;
 import com.example.mac.commonframe_ec.event.ShareEvent;
 import com.example.mac.commonframe_ec.event.TestEvent;
+import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import cn.jpush.android.api.JPushInterface;
+
+import static com.facebook.stetho.Stetho.defaultInspectorModulesProvider;
 
 /**
  * Created by mac on 2017/9/16.
@@ -31,8 +34,9 @@ public class ExampleApp extends Application {
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())//自定义字体
                 .withLoaderDelayed(1000)
-                .withApiHost("http://192.168.31.80.8080/RestServer/api/")//回环（本机地址）：http://127.0.0.1/
-                .withInterceptor(new DebugInterceptor("index", R.raw.test))//index
+                //.withApiHost("http://192.168.0.101.8080/RestServer/api/")//回环（本机地址）：http://127.0.0.1/
+                .withApiHost("http://mock.fulingjie.com/mock/api/")
+                //.withInterceptor(new DebugInterceptor("index", R.raw.test))//index
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")
                 .withJavascriptInterface("latte")
@@ -44,6 +48,8 @@ public class ExampleApp extends Application {
                 .configure();
 
         DatabaseManager.getInstance().init(this);
+
+        initStetho();
 
         //开启极光推送
         JPushInterface.setDebugMode(true);
@@ -69,6 +75,13 @@ public class ExampleApp extends Application {
                     }
                 });
 
+    }
+
+    private void initStetho() {
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(defaultInspectorModulesProvider(this)).build());
     }
 
 }

@@ -39,7 +39,8 @@ public abstract class BaseDelegate extends Fragment implements ISupportFragment 
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container
+            , @Nullable Bundle savedInstanceState) {
         final View rootView;
         if (setLayout() instanceof Integer) {
             rootView = inflater.inflate((int) setLayout(), container, false);

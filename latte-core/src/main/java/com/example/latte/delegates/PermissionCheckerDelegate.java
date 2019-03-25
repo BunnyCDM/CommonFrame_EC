@@ -88,6 +88,7 @@ public abstract class PermissionCheckerDelegate extends BaseDelegate {
                 .show();
     }
 
+    //请求权限回调
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

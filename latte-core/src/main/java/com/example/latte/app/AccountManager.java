@@ -32,6 +32,6 @@ public class AccountManager {
         } else {
             checker.onNotSignIn();
         }
-
     }
+
 }

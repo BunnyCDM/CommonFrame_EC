@@ -9,11 +9,14 @@ import android.support.design.widget.TextInputEditText;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.latte.delegates.LatteDelegate;
 import com.example.latte.ec.R;
 import com.example.latte.ec.R2;
 import com.example.latte.net.RestClient;
+import com.example.latte.net.callback.IError;
+import com.example.latte.net.callback.IFailure;
 import com.example.latte.net.callback.ISuccess;
 import com.example.latte.util.log.LatteLogger;
 
@@ -54,15 +57,30 @@ public class SignUpDelegate extends LatteDelegate {
         Log.d(TAG, "onClickSignUp: ");
         if (checkForm()) {
             Log.d(TAG, "onClick: 验证通过了");
+            Toast.makeText(getContext(), "验证通过了", Toast.LENGTH_SHORT).show();
             RestClient.builder()
-                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                    //.url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
+                    .url("http://mock.fulingjie.com/mock/data/user_profile.json")
                     .params("name", mName.getText().toString().trim())
                     .params("email", mEmail.getText().toString().trim())
                     .params("phone", mPhone.getText().toString().trim())
+                    .failure(new IFailure() {
+                        @Override
+                        public void onFailure() {
+                            Log.d(TAG, "onFailure: ");
+                        }
+                    })
+                    .error(new IError() {
+                        @Override
+                        public void onError(int code, String msg) {
+                            Log.d(TAG, "onError: msg=" + msg);
+                        }
+                    })
                     .params("password", mPassword.getText().toString().trim())
                     .success(new ISuccess() {
                         @Override
                         public void onSuccess(String response) {
+                            Log.d(TAG, "onSuccess:response="+response);
                             LatteLogger.json("USER_PROFILE", response);
                             SignHandler.onSignUp(response, mISignListener);
                         }

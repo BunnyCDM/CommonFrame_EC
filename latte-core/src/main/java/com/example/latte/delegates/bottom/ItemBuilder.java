@@ -10,7 +10,8 @@ import java.util.LinkedHashMap;
 
 public final class ItemBuilder {
 
-    private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();//有序序列
+    //有序序列
+    private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();
 
     static ItemBuilder builder() {
         return new ItemBuilder();

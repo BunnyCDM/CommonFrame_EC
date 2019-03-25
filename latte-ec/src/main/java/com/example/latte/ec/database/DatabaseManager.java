@@ -19,7 +19,6 @@ public class DatabaseManager {
     public DatabaseManager() {
     }
 
-
     public DatabaseManager init(Context context) {
         initDao(context);
         return this;
