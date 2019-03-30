@@ -52,9 +52,9 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
 //        return new ExampleDelegate();
 //        return new LauncherDelegate();
 //        return new LauncherScrollDelegate();
-        return new SignUpDelegate();
+//        return new SignUpDelegate();
 //        return new SignInDelegate();
-        //return new EcBottomDelegate();
+        return new EcBottomDelegate();
         //return new DiscoverDelegate();
     }
 

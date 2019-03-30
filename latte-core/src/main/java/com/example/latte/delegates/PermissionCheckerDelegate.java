@@ -24,6 +24,8 @@ import permissions.dispatcher.OnShowRationale;
 import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.RuntimePermissions;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by mac on 2017/9/16.
  * <p>

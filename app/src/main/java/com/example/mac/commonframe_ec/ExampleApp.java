@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import com.example.latte.app.Latte;
 import com.example.latte.ec.database.DatabaseManager;
 import com.example.latte.ec.icon.FontEcModule;
-import com.example.latte.net.interceptors.DebugInterceptor;
 import com.example.latte.net.rx.AddCookieInterceptor;
 import com.example.latte.util.callback.CallbackManager;
 import com.example.latte.util.callback.CallbackType;
@@ -35,7 +34,7 @@ public class ExampleApp extends Application {
                 .withIcon(new FontEcModule())//自定义字体
                 .withLoaderDelayed(1000)
                 //.withApiHost("http://192.168.0.101.8080/RestServer/api/")//回环（本机地址）：http://127.0.0.1/
-                .withApiHost("http://mock.fulingjie.com/mock/api/")
+                .withApiHost("http://mock.fulingjie.com/mock-android/api/")
                 //.withInterceptor(new DebugInterceptor("index", R.raw.test))//index
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")

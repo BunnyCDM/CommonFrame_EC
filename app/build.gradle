@@ -11,12 +11,13 @@ android {
             storePassword '123456'
         }
     }
-    compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
     defaultConfig {
         applicationId "com.example.mac.commonframe_ec"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -44,20 +45,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
     //In your app projects build.gradle file
 
-    compile project(':latte-ec')
+    implementation project(':latte-ec')
 
     annotationProcessor project(':latte-compiler')
 
-    compile 'cn.jiguang.sdk:jpush:3.0.1'
-    compile 'cn.jiguang.sdk:jcore:1.1.0'
+    implementation 'cn.jiguang.sdk:jpush:3.0.1'
+    implementation 'cn.jiguang.sdk:jcore:1.1.0'
 
     //引入ShareSDKjar，这句话可以注释，是因为compile fileTree(include: ['*.jar'], dir: 'libs')这句话
 //    compile files('libs/MobCommons-2016.1222.1756.jar')
@@ -70,9 +71,16 @@ dependencies {
 //    compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
 
     //ButterKnife依赖
-    compile 'com.jakewharton:butterknife:8.6.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    //compile 'com.jakewharton:butterknife:8.6.0'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
 
     //数据库查看工具，也可以原生界面映射到web上
-    compile 'com.facebook.stetho:stetho:1.4.2'
+    implementation 'com.facebook.stetho:stetho:1.4.2'
+}
+
+//解决-->Error: Program type already present: android.support.v13.view.DragStartHelper$1
+configurations {
+    all*.exclude group: 'com.android.support', module: 'support-v13'
 }

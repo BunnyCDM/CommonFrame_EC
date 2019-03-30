@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     //以下为添加依赖
 
 }
