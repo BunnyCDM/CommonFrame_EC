@@ -50,32 +50,25 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-
     //In your app projects build.gradle file
-
     implementation project(':latte-ec')
-
     annotationProcessor project(':latte-compiler')
-
     implementation 'cn.jiguang.sdk:jpush:3.0.1'
     implementation 'cn.jiguang.sdk:jcore:1.1.0'
-
     //引入ShareSDKjar，这句话可以注释，是因为compile fileTree(include: ['*.jar'], dir: 'libs')这句话
-//    compile files('libs/MobCommons-2016.1222.1756.jar')
-//    compile files('libs/MobTools-2016.1222.1756.jar')
-//    compile files('libs/ShareSDK-Core-2.8.0.jar')
-//    compile files('libs/ShareSDK-ShortMessage-2.8.0.jar')
-//    compile files('libs/ShareSDK-Wechat-2.8.0.jar')
-//    compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
-//    compile files('libs/ShareSDK-Wechat-Favorite-2.8.0.jar')
-//    compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
-
+    //    compile files('libs/MobCommons-2016.1222.1756.jar')
+    //    compile files('libs/MobTools-2016.1222.1756.jar')
+    //    compile files('libs/ShareSDK-Core-2.8.0.jar')
+    //    compile files('libs/ShareSDK-ShortMessage-2.8.0.jar')
+    //    compile files('libs/ShareSDK-Wechat-2.8.0.jar')
+    //    compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
+    //    compile files('libs/ShareSDK-Wechat-Favorite-2.8.0.jar')
+    //    compile files('libs/ShareSDK-Wechat-Moments-2.8.0.jar')
     //ButterKnife依赖
     //compile 'com.jakewharton:butterknife:8.6.0'
     //annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
-
     //数据库查看工具，也可以原生界面映射到web上
     implementation 'com.facebook.stetho:stetho:1.4.2'
 }

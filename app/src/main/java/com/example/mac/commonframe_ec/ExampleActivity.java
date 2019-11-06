@@ -8,12 +8,9 @@ import android.widget.Toast;
 import com.example.latte.activities.ProxyActivity;
 import com.example.latte.app.Latte;
 import com.example.latte.delegates.LatteDelegate;
-import com.example.latte.ec.launcher.LauncherDelegate;
-import com.example.latte.ec.launcher.LauncherScrollDelegate;
 import com.example.latte.ec.main.EcBottomDelegate;
 import com.example.latte.ec.sign.ISignListener;
 import com.example.latte.ec.sign.SignInDelegate;
-import com.example.latte.ec.sign.SignUpDelegate;
 import com.example.latte_ui.launcher.ILauncherListener;
 import com.example.latte_ui.launcher.OnLauncherFinishTag;
 
@@ -33,6 +30,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
 
         Latte.getConfigurator().withActivity(this);
         StatusBarCompat.translucentStatusBar(this, true);
+
     }
 
     @Override

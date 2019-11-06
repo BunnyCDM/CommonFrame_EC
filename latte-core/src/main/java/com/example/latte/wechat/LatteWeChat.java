@@ -20,18 +20,18 @@ public class LatteWeChat {
     private final IWXAPI WXAPI;//无论登录、支付需要该接口
     private IWeChatSignInCallback mSignInCallback = null;
 
+    public LatteWeChat() {
+        final Activity activity = Latte.getConfiguration(ConfigKeys.ACTIVITY);
+        WXAPI = WXAPIFactory.createWXAPI(activity, APP_ID, true);
+        WXAPI.registerApp(APP_ID);
+    }
+
     private static final class Holder {
         private static final LatteWeChat INSTANCE = new LatteWeChat();
     }
 
     public static LatteWeChat getInstance() {
         return Holder.INSTANCE;
-    }
-
-    public LatteWeChat() {
-        final Activity activity = Latte.getConfiguration(ConfigKeys.ACTIVITY);
-        WXAPI = WXAPIFactory.createWXAPI(activity, APP_ID, true);
-        WXAPI.registerApp(APP_ID);
     }
 
     public final IWXAPI getWXAPI() {

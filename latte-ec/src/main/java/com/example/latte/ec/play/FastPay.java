@@ -112,8 +112,7 @@ public class FastPay implements View.OnClickListener {
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-                        final JSONObject result =
-                                JSON.parseObject(response).getJSONObject("result");
+                        final JSONObject result = JSON.parseObject(response).getJSONObject("result");
                         final String prepayId = result.getString("prepayid");
                         final String partnerId = result.getString("partnerid");
                         final String packageValue = result.getString("package");
