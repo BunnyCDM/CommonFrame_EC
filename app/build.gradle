@@ -67,8 +67,9 @@ dependencies {
     //ButterKnife依赖
     //compile 'com.jakewharton:butterknife:8.6.0'
     //annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
+    //implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     //数据库查看工具，也可以原生界面映射到web上
     implementation 'com.facebook.stetho:stetho:1.4.2'
 }

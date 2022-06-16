@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 public abstract class WebDelegate extends LatteDelegate implements IWebViewInitializer {
 
     private WebView mWebView = null;
-    private final ReferenceQueue<WebView> WEB_VIEW_QUEUE = new ReferenceQueue<>();//若引用或软引用
+    private final ReferenceQueue<WebView> WEB_VIEW_QUEUE = new ReferenceQueue<>();//弱引用或软引用
     private String mUrl = null;
     private boolean mIsWebViewAvailable = false;//为什么要添加这个flag（WebViewFragment：想看其源码需要降低sdk）
     private LatteDelegate mTopDelegate = null;

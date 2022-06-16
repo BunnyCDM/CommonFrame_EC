@@ -17,7 +17,7 @@ import com.example.latte.delegates.web.route.Router;
 /**
  * Created by mac on 2017/9/16.
  * <p>
- * 承载web页面的核心
+ * 承载web页面的核心，Impl就是具体实现的意思
  */
 
 public class WebDelegateImpl extends WebDelegate {

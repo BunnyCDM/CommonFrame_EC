@@ -37,6 +37,7 @@ dependencies {
     //RecyclerView依赖
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
 
+
     //RecyclerView 分割线
     api 'com.choices.divider:RecyclerView_Divider:1.0.0'
 

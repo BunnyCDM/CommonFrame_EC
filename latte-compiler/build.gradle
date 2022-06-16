@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //以下为添加依赖
+    //以下为添加依赖`
     implementation 'com.squareup:javapoet:1.9.0'
     implementation 'com.google.auto.service:auto-service:1.0-rc3'
     implementation 'com.google.auto:auto-common:0.8'

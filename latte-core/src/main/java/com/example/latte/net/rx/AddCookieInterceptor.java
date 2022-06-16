@@ -1,5 +1,6 @@
 package com.example.latte.net.rx;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 
 import com.example.latte.util.storage.LattePreference;
@@ -18,6 +19,7 @@ import okhttp3.Response;
 
 public final class AddCookieInterceptor implements Interceptor {
 
+    @SuppressLint("CheckResult")
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
         final Request.Builder builder = chain.request().newBuilder();

@@ -26,7 +26,7 @@ public final class LatteWebInterface {
         return new LatteWebInterface(delegate);
     }
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("unused") //在android4.4以后需要加入该注解，否则认为不安全不可应用
     @JavascriptInterface //该注解必须添加
     public String event(String params) {//js默认返回的地方
         final String action = JSON.parseObject(params).getString("action");

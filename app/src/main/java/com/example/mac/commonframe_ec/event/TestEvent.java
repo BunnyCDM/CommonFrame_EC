@@ -1,5 +1,6 @@
 package com.example.mac.commonframe_ec.event;
 
+import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.Toast;
 
@@ -20,7 +21,12 @@ public class TestEvent extends Event {
             webView.post(new Runnable() {
                 @Override
                 public void run() {
-                    webView.evaluateJavascript("nativeCall();", null);
+                    webView.evaluateJavascript("nativeCall();", new ValueCallback<String>() {
+                        @Override
+                        public void onReceiveValue(String value) {
+                            Toast.makeText(getContext(), value, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             });
         }

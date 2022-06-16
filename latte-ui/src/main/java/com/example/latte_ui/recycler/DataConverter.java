@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by mac on 2017/10/12.
- *
+ * <p>
  * 数据转化器，一个基类
  */
 
@@ -27,7 +27,7 @@ public abstract class DataConverter {
         return mJsonData;
     }
 
-    public void clearData(){
+    public void clearData() {
         ENTITIES.clear();
     }
 

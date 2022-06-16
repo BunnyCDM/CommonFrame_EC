@@ -68,4 +68,5 @@ public class ScannerDelegate extends LatteDelegate implements ZBarScannerView.Re
         }
         getSupportDelegate().pop();//退出
     }
+
 }

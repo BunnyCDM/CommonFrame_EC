@@ -32,6 +32,7 @@ dependencies {
 
     //annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
     api project(':latte-ui')
 
